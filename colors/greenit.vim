@@ -83,11 +83,23 @@ let s:ct_e    = 174
 
 " ---- helper: define a group in both guicolors and cterm ----
 func! s:H(name, guifg, guibg, ctermfg, ctermbg, attr)
+  let l:cmd = 'hi ' . a:name
   if s:term
-    exe 'hi ' . a:name . ' guifg=' . a:guifg . ' guibg=' . a:guibg . ' ctermfg=' . a:ctermfg . ' ctermbg=' . a:ctermbg . ' gui=' . a:attr . ' cterm=' . a:attr
-  else
-    exe 'hi ' . a:name . ' ctermfg=' . a:ctermfg . ' ctermbg=' . a:ctermbg . ' cterm=' . a:attr
+    if a:guifg != 'none'
+      let l:cmd .= ' guifg=' . a:guifg
+    endif
+    if a:guibg != 'none'
+      let l:cmd .= ' guibg=' . a:guibg
+    endif
   endif
+  if a:ctermfg != 'none'
+    let l:cmd .= ' ctermfg=' . a:ctermfg
+  endif
+  if a:ctermbg != 'none'
+    let l:cmd .= ' ctermbg=' . a:ctermbg
+  endif
+  let l:cmd .= ' gui=' . a:attr . ' cterm=' . a:attr
+  exe l:cmd
 endfunc
 
 " ---- editor UI ----
