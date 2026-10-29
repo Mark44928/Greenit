@@ -44,7 +44,7 @@ plus green accents).
 | bg         | #0C1F17   | deep forest       |
 | surface    | #122A1F   | sage lift         |
 | fg         | #C9E4CE   | soft sage         |
-| comment    | #5F7A66   | moss              |
+| comment    | #78997F   | moss              |
 | primary    | #7BD88F   | green             |
 | secondary  | #63C9A8   | teal-green         |
 | yellow     | #B8CC7A   | moss-yellow        |
@@ -59,7 +59,7 @@ plus green accents).
 | bg         | #F2F7EF   | pale sage         |
 | surface    | #E6EFE2   | green mist        |
 | fg         | #24382C   | deep pine         |
-| comment    | #7A9078   | sage-gray          |
+| comment    | #56695C   | sage-gray          |
 | primary    | #7BD88F   | green             |
 | secondary  | #63C9A8   | teal-green         |
 | yellow     | #B8CC7A   | moss-yellow        |

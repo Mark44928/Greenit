@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1060" viewBox="0 0 1536 1060">
+<rect width="1536" height="1060" fill="#f5f5f5"/>
+<rect x="70" y="120" width="196" height="64" fill="#464646"/>
+<rect x="73" y="123" width="190" height="58" fill="#0C1F17"/>
+<text x="294" y="142" font-family="Cascadia Code" font-size="21" fill="#f0f0f0">bg</text>
+<text x="294" y="166" font-family="Cascadia Code" font-size="19" fill="#f0f0f0">#0C1F17</text>
+<rect x="70" y="206" width="196" height="64" fill="#464646"/>
+<rect x="73" y="209" width="190" height="58" fill="#122A1F"/>
+<text x="294" y="228" font-family="Cascadia Code" font-size="21" fill="#f0f0f0">surface</text>
+<text x="294" y="252" font-family="Cascadia Code" font-size="19" fill="#f0f0f0">#122A1F</text>
+<rect x="70" y="292" width="196" height="64" fill="#464646"/>
+<rect x="73" y="295" width="190" height="58" fill="#C9E4CE"/>
+<text x="294" y="314" font-family="Cascadia Code" font-size="21" fill="#191919">fg</text>
+<text x="294" y="338" font-family="Cascadia Code" font-size="19" fill="#191919">#C9E4CE</text>
+<rect x="70" y="378" width="196" height="64" fill="#464646"/>
+<rect x="73" y="381" width="190" height="58" fill="#78997F"/>
+<text x="294" y="400" font-family="Cascadia Code" font-size="21" fill="#f0f0f0">comment</text>
+<text x="294" y="424" font-family="Cascadia Code" font-size="19" fill="#f0f0f0">#78997F</text>
+<rect x="70" y="464" width="196" height="64" fill="#464646"/>
+<rect x="73" y="467" width="190" height="58" fill="#7BD88F"/>
+<text x="294" y="486" font-family="Cascadia Code" font-size="21" fill="#191919">primary</text>
+<text x="294" y="510" font-family="Cascadia Code" font-size="19" fill="#191919">#7BD88F</text>
+<rect x="70" y="550" width="196" height="64" fill="#464646"/>
+<rect x="73" y="553" width="190" height="58" fill="#63C9A8"/>
+<text x="294" y="572" font-family="Cascadia Code" font-size="21" fill="#191919">secondary</text>
+<text x="294" y="596" font-family="Cascadia Code" font-size="19" fill="#191919">#63C9A8</text>
+<rect x="70" y="636" width="196" height="64" fill="#464646"/>
+<rect x="73" y="639" width="190" height="58" fill="#B8CC7A"/>
+<text x="294" y="658" font-family="Cascadia Code" font-size="21" fill="#191919">yellow</text>
+<text x="294" y="682" font-family="Cascadia Code" font-size="19" fill="#191919">#B8CC7A</text>
+<rect x="70" y="722" width="196" height="64" fill="#464646"/>
+<rect x="73" y="725" width="190" height="58" fill="#A88EA0"/>
+<text x="294" y="744" font-family="Cascadia Code" font-size="21" fill="#191919">rose</text>
+<text x="294" y="768" font-family="Cascadia Code" font-size="19" fill="#191919">#A88EA0</text>
+<rect x="70" y="808" width="196" height="64" fill="#464646"/>
+<rect x="73" y="811" width="190" height="58" fill="#7FD7C4"/>
+<text x="294" y="830" font-family="Cascadia Code" font-size="21" fill="#191919">cyan</text>
+<text x="294" y="854" font-family="Cascadia Code" font-size="19" fill="#191919">#7FD7C4</text>
+<rect x="70" y="894" width="196" height="64" fill="#464646"/>
+<rect x="73" y="897" width="190" height="58" fill="#C07A6E"/>
+<text x="294" y="916" font-family="Cascadia Code" font-size="21" fill="#f0f0f0">error</text>
+<text x="294" y="940" font-family="Cascadia Code" font-size="19" fill="#f0f0f0">#C07A6E</text>
+<rect x="848" y="120" width="196" height="64" fill="#464646"/>
+<rect x="851" y="123" width="190" height="58" fill="#F2F7EF"/>
+<text x="1072" y="142" font-family="Cascadia Code" font-size="21" fill="#191919">bg</text>
+<text x="1072" y="166" font-family="Cascadia Code" font-size="19" fill="#191919">#F2F7EF</text>
+<rect x="848" y="206" width="196" height="64" fill="#464646"/>
+<rect x="851" y="209" width="190" height="58" fill="#E6EFE2"/>
+<text x="1072" y="228" font-family="Cascadia Code" font-size="21" fill="#191919">surface</text>
+<text x="1072" y="252" font-family="Cascadia Code" font-size="19" fill="#191919">#E6EFE2</text>
+<rect x="848" y="292" width="196" height="64" fill="#464646"/>
+<rect x="851" y="295" width="190" height="58" fill="#24382C"/>
+<text x="1072" y="314" font-family="Cascadia Code" font-size="21" fill="#f0f0f0">fg</text>
+<text x="1072" y="338" font-family="Cascadia Code" font-size="19" fill="#f0f0f0">#24382C</text>
+<rect x="848" y="378" width="196" height="64" fill="#464646"/>
+<rect x="851" y="381" width="190" height="58" fill="#56695C"/>
+<text x="1072" y="400" font-family="Cascadia Code" font-size="21" fill="#f0f0f0">comment</text>
+<text x="1072" y="424" font-family="Cascadia Code" font-size="19" fill="#f0f0f0">#56695C</text>
+<rect x="848" y="464" width="196" height="64" fill="#464646"/>
+<rect x="851" y="467" width="190" height="58" fill="#7BD88F"/>
+<text x="1072" y="486" font-family="Cascadia Code" font-size="21" fill="#191919">primary</text>
+<text x="1072" y="510" font-family="Cascadia Code" font-size="19" fill="#191919">#7BD88F</text>
+<rect x="848" y="550" width="196" height="64" fill="#464646"/>
+<rect x="851" y="553" width="190" height="58" fill="#63C9A8"/>
+<text x="1072" y="572" font-family="Cascadia Code" font-size="21" fill="#191919">secondary</text>
+<text x="1072" y="596" font-family="Cascadia Code" font-size="19" fill="#191919">#63C9A8</text>
+<rect x="848" y="636" width="196" height="64" fill="#464646"/>
+<rect x="851" y="639" width="190" height="58" fill="#B8CC7A"/>
+<text x="1072" y="658" font-family="Cascadia Code" font-size="21" fill="#191919">yellow</text>
+<text x="1072" y="682" font-family="Cascadia Code" font-size="19" fill="#191919">#B8CC7A</text>
+<rect x="848" y="722" width="196" height="64" fill="#464646"/>
+<rect x="851" y="725" width="190" height="58" fill="#A88EA0"/>
+<text x="1072" y="744" font-family="Cascadia Code" font-size="21" fill="#191919">rose</text>
+<text x="1072" y="768" font-family="Cascadia Code" font-size="19" fill="#191919">#A88EA0</text>
+<rect x="848" y="808" width="196" height="64" fill="#464646"/>
+<rect x="851" y="811" width="190" height="58" fill="#7FD7C4"/>
+<text x="1072" y="830" font-family="Cascadia Code" font-size="21" fill="#191919">cyan</text>
+<text x="1072" y="854" font-family="Cascadia Code" font-size="19" fill="#191919">#7FD7C4</text>
+<rect x="848" y="894" width="196" height="64" fill="#464646"/>
+<rect x="851" y="897" width="190" height="58" fill="#C07A6E"/>
+<text x="1072" y="916" font-family="Cascadia Code" font-size="21" fill="#f0f0f0">error</text>
+<text x="1072" y="940" font-family="Cascadia Code" font-size="19" fill="#f0f0f0">#C07A6E</text>
+</svg>

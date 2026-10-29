@@ -6,7 +6,7 @@ Two variants: **Dark** (`greenit`) and **Light** (`greenit-light`).
 
 ## Preview
 
-![Greenit palette preview — Dark and Light variants](assets/palette-preview.png)
+![Greenit palette preview — Dark and Light variants](assets/palette-preview.svg)
 
 WCAG AA: dark fg/bg = 12.64:1, light fg/bg = 11.52:1.
 
@@ -109,7 +109,7 @@ cp termux/greenit-light.properties ~/.termux/colors.properties && termux-reload-
 | bg | `#0C1F17` | `#F2F7EF` |
 | surface | `#122A1F` | `#E6EFE2` |
 | fg | `#C9E4CE` | `#24382C` |
-| comment | `#5F7A66` | `#7A9078` |
+| comment | `#78997F` | `#56695C` |
 | primary | `#7BD88F` | `#7BD88F` |
 | secondary | `#63C9A8` | `#63C9A8` |
 | yellow | `#B8CC7A` | `#B8CC7A` |

@@ -39,7 +39,7 @@ if s:light
   let s:bg   = '#F2F7EF'
   let s:surf = '#E6EFE2'
   let s:fg   = '#24382C'
-  let s:cm   = '#7A9078'
+  let s:cm   = '#56695C'
   let s:p    = '#7BD88F'
   let s:s    = '#63C9A8'
   let s:y    = '#B8CC7A'
@@ -56,7 +56,7 @@ else
   let s:bg   = '#0C1F17'
   let s:surf = '#122A1F'
   let s:fg   = '#C9E4CE'
-  let s:cm   = '#5F7A66'
+  let s:cm   = '#78997F'
   let s:p    = '#7BD88F'
   let s:s    = '#63C9A8'
   let s:y    = '#B8CC7A'
@@ -64,7 +64,7 @@ else
   let s:c    = '#7FD7C4'
   let s:e    = '#C07A6E'
   let s:bg_hi   = '#122A1F'
-  let s:bor     = '#5F7A66'
+  let s:bor     = '#78997F'
   let s:sha     = 'rgba(0,0,0,.45)'
   let s:ct_bg   = 233
   let s:ct_fg   = 151
