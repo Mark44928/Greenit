@@ -1,0 +1,25 @@
+# Greenit Dark — green-injected terminal theme
+# Install: append to ~/.config/ghostty/config or set in config:
+#   include = ~/repos/Greenit/extras/ghostty
+
+background = #0C1F17
+foreground = #C9E4CE
+cursor = #C9E4CE
+cursor_text = #0C1F17
+
+palette = 0=#1A331C
+palette = 1=#A88EA0
+palette = 2=#7BD88F
+palette = 3=#B8CC7A
+palette = 4=#63C9A8
+palette = 5=#A88EA0
+palette = 6=#7FD7C4
+palette = 7=#A7C4A3
+palette = 8=#5F7A66
+palette = 9=#A88EA0
+palette = 10=#7BD88F
+palette = 11=#B8CC7A
+palette = 12=#63C9A8
+palette = 13=#A88EA0
+palette = 14=#7FD7C4
+palette = 15=#C9E4CE

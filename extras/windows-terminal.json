@@ -1,0 +1,22 @@
+{
+  "name": "Greenit Dark",
+  "background": "#0C1F17",
+  "foreground": "#C9E4CE",
+  "cursorColor": "#C9E4CE",
+  "black": "#1A331C",
+  "red": "#A88EA0",
+  "green": "#7BD88F",
+  "yellow": "#B8CC7A",
+  "blue": "#63C9A8",
+  "purple": "#A88EA0",
+  "cyan": "#7FD7C4",
+  "white": "#A7C4A3",
+  "brightBlack": "#5F7A66",
+  "brightRed": "#A88EA0",
+  "brightGreen": "#7BD88F",
+  "brightYellow": "#B8CC7A",
+  "brightBlue": "#63C9A8",
+  "brightPurple": "#A88EA0",
+  "brightCyan": "#7FD7C4",
+  "brightWhite": "#C9E4CE"
+}
