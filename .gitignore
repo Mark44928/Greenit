@@ -1,0 +1,29 @@
+# .gitignore — Greenit
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.*.sw[a-p]
+*.swp
+*.swo
+*~
+
+# Vim
+.vim/
+*.vim/*.viminfo
+
+# Neovim
+.nvim/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Build / temp
+*.log
+.tmp/
+/tmp/
