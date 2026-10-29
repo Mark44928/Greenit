@@ -14,7 +14,6 @@ endif
 let s:light = !empty($GREENIT_LIGHT) && $GREENIT_LIGHT ==# '1'
 let s:light = s:light || (exists('g:greenit_light') && g:greenit_light)
 let s:name = s:light ? 'greenit-light' : 'greenit'
-let g:colors_name = s:name
 hi clear
 if exists('syntax_reset')
   let b:current_after_color = 0
@@ -24,6 +23,8 @@ if !has('gui_running') && !has('termguicolors') && &t_Co < 256
   finish
 endif
 execute "set background=" . (s:light ? 'light' : 'dark')
+" set g:colors_name AFTER set background (Vim resets colorscheme state on bg change)
+let g:colors_name = s:name
 if has('termguicolors') || has('gui_running')
   let s:term = 1
 else
@@ -190,67 +191,65 @@ call s:H('DebugFail', s:e, 'none', s:ct_e, 'none', 'none')
 call s:H('Error', s:bg, s:e, s:ct_bg, s:ct_e, 'bold')
 
 " ---- Tree-sitter captures ----
-call s:H('@variable', s:fg, 'none', s:ct_fg, 'none', 'none')
-call s:H('@variable.builtin', s:r, 'none', s:ct_r, 'none', 'none')
-call s:H('@variable.parameter', s:r, 'none', s:ct_r, 'none', 'none')
-call s:H('@variable.functional', s:s, 'none', s:ct_s, 'none', 'none')
-call s:H('@comment', s:cm, 'none', s:ct_cm, 'none', 'italic')
-call s:H('@comment.error', s:e, 'none', s:ct_e, 'none', 'italic')
-call s:H('@comment.warning', s:y, 'none', s:ct_y, 'none', 'italic')
-call s:H('@comment.note', s:c, 'none', s:ct_c, 'none', 'italic')
-call s:H('@comment.todo', s:bg, s:y, s:ct_bg, s:ct_y, 'bold')
-call s:H('@string', s:p, 'none', s:ct_p, 'none', 'none')
-call s:H('@string.regexp', s:e, 'none', s:ct_e, 'none', 'none')
-call s:H('@string.escape', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@string.special', s:y, 'none', s:ct_y, 'none', 'none')
-call s:H('@string.special.symbol', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@character', s:r, 'none', s:ct_r, 'none', 'none')
-call s:H('@number', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@boolean', s:c, 'none', s:ct_c, 'none', 'bold')
-call s:H('@float', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@function', s:s, 'none', s:ct_s, 'none', 'bold')
-call s:H('@function.builtin', s:y, 'none', s:ct_y, 'none', 'bold')
-call s:H('@function.macro', s:p, 'none', s:ct_p, 'none', 'bold')
-call s:H('@function.conditional', s:p, 'none', s:ct_p, 'none', 'bold')
-call s:H('@keyword', s:p, 'none', s:ct_p, 'none', 'bold')
-call s:H('@keyword.directive', s:r, 'none', s:ct_r, 'none', 'none')
-call s:H('@keyword.import', s:r, 'none', s:ct_r, 'none', 'none')
-call s:H('@keyword.modifier', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@keyword.repeat', s:p, 'none', s:ct_p, 'none', 'bold')
-call s:H('@keyword.conditional', s:p, 'none', s:ct_p, 'none', 'bold')
-call s:H('@type', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@type.builtin', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@type.primitive', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@constant', s:r, 'none', s:ct_r, 'none', 'none')
-call s:H('@constant.builtin', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@constant.macro', s:y, 'none', s:ct_y, 'none', 'none')
-call s:H('@namespace', s:fg, 'none', s:ct_fg, 'none', 'none')
-call s:H('@module', s:fg, 'none', s:ct_fg, 'none', 'none')
-call s:H('@property', s:r, 'none', s:ct_r, 'none', 'none')
-call s:H('@parameter', s:r, 'none', s:ct_r, 'none', 'none')
-call s:H('@text', s:fg, 'none', s:ct_fg, 'none', 'none')
-call s:H('@text.strong', s:fg, 'none', s:ct_fg, 'none', 'bold')
-call s:H('@text.emphasis', s:fg, 'none', s:ct_fg, 'none', 'italic')
-call s:H('@text.literal', s:p, 'none', s:ct_p, 'none', 'none')
-call s:H('@text.uri', s:c, 'none', s:ct_c, 'none', 'underline')
-call s:H('@text.todo', s:bg, s:y, s:ct_bg, s:ct_y, 'bold')
-call s:H('@text.note', s:c, 'none', s:ct_c, 'none', 'none')
-call s:H('@text.warning', s:y, 'none', s:ct_y, 'none', 'none')
-call s:H('@text.error', s:e, 'none', s:ct_e, 'none', 'none')
-call s:H('@text.diff.add', s:bg, s:p, s:ct_bg, s:ct_p, 'none')
-call s:H('@text.diff.delete', s:bg, s:e, s:ct_bg, s:ct_e, 'none')
-call s:H('@text.diff.change', s:bg, s:c, s:ct_bg, s:ct_c, 'none')
-call s:H('@text.diff.end', s:bg, s:y, s:ct_bg, s:ct_y, 'none')
+" silent! suppresses W18 in Vim 9 (Neovim supports '@' dotted names)
+silent! call s:H('@variable', s:fg, 'none', s:ct_fg, 'none', 'none')
+silent! call s:H('@variable.builtin', s:r, 'none', s:ct_r, 'none', 'none')
+silent! call s:H('@variable.parameter', s:r, 'none', s:ct_r, 'none', 'none')
+silent! call s:H('@variable.functional', s:s, 'none', s:ct_s, 'none', 'none')
+silent! call s:H('@comment', s:cm, 'none', s:ct_cm, 'none', 'italic')
+silent! call s:H('@comment.error', s:e, 'none', s:ct_e, 'none', 'italic')
+silent! call s:H('@comment.warning', s:y, 'none', s:ct_y, 'none', 'italic')
+silent! call s:H('@comment.note', s:c, 'none', s:ct_c, 'none', 'italic')
+silent! call s:H('@comment.todo', s:bg, s:y, s:ct_bg, s:ct_y, 'bold')
+silent! call s:H('@string', s:p, 'none', s:ct_p, 'none', 'none')
+silent! call s:H('@string.regexp', s:e, 'none', s:ct_e, 'none', 'none')
+silent! call s:H('@string.escape', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@string.special', s:y, 'none', s:ct_y, 'none', 'none')
+silent! call s:H('@string.special.symbol', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@character', s:r, 'none', s:ct_r, 'none', 'none')
+silent! call s:H('@number', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@boolean', s:c, 'none', s:ct_c, 'none', 'bold')
+silent! call s:H('@float', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@function', s:s, 'none', s:ct_s, 'none', 'bold')
+silent! call s:H('@function.builtin', s:y, 'none', s:ct_y, 'none', 'bold')
+silent! call s:H('@function.macro', s:p, 'none', s:ct_p, 'none', 'bold')
+silent! call s:H('@function.conditional', s:p, 'none', s:ct_p, 'none', 'bold')
+silent! call s:H('@keyword', s:p, 'none', s:ct_p, 'none', 'bold')
+silent! call s:H('@keyword.directive', s:r, 'none', s:ct_r, 'none', 'none')
+silent! call s:H('@keyword.import', s:r, 'none', s:ct_r, 'none', 'none')
+silent! call s:H('@keyword.modifier', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@keyword.repeat', s:p, 'none', s:ct_p, 'none', 'bold')
+silent! call s:H('@keyword.conditional', s:p, 'none', s:ct_p, 'none', 'bold')
+silent! call s:H('@type', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@type.builtin', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@type.primitive', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@constant', s:r, 'none', s:ct_r, 'none', 'none')
+silent! call s:H('@constant.builtin', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@constant.macro', s:y, 'none', s:ct_y, 'none', 'none')
+silent! call s:H('@namespace', s:fg, 'none', s:ct_fg, 'none', 'none')
+silent! call s:H('@module', s:fg, 'none', s:ct_fg, 'none', 'none')
+silent! call s:H('@property', s:r, 'none', s:ct_r, 'none', 'none')
+silent! call s:H('@parameter', s:r, 'none', s:ct_r, 'none', 'none')
+silent! call s:H('@text', s:fg, 'none', s:ct_fg, 'none', 'none')
+silent! call s:H('@text.strong', s:fg, 'none', s:ct_fg, 'none', 'bold')
+silent! call s:H('@text.emphasis', s:fg, 'none', s:ct_fg, 'none', 'italic')
+silent! call s:H('@text.literal', s:p, 'none', s:ct_p, 'none', 'none')
+silent! call s:H('@text.uri', s:c, 'none', s:ct_c, 'none', 'underline')
+silent! call s:H('@text.todo', s:bg, s:y, s:ct_bg, s:ct_y, 'bold')
+silent! call s:H('@text.note', s:c, 'none', s:ct_c, 'none', 'none')
+silent! call s:H('@text.warning', s:y, 'none', s:ct_y, 'none', 'none')
+silent! call s:H('@text.error', s:e, 'none', s:ct_e, 'none', 'none')
+silent! call s:H('@text.diff.add', s:bg, s:p, s:ct_bg, s:ct_p, 'none')
+silent! call s:H('@text.diff.delete', s:bg, s:e, s:ct_bg, s:ct_e, 'none')
+silent! call s:H('@text.diff.change', s:bg, s:c, s:ct_bg, s:ct_c, 'none')
+silent! call s:H('@text.diff.end', s:bg, s:y, s:ct_bg, s:ct_y, 'none')
 
-" ---- links (guarded: Neovim Tree-sitter capture links) ----
-try
-  hi! link @text.literal String
-  hi! link @text.quote String
-  hi! link @text.uri String
-  hi! link @text.strong Bold
-  hi! link @constant.builtin Boolean
-catch
-endtry
+" ---- links (silent! suppresses W18 in Vim 9; no-op in Neovim) ----
+silent! hi! link @text.literal String
+silent! hi! link @text.quote String
+silent! hi! link @text.uri String
+silent! hi! link @text.strong Bold
+silent! hi! link @constant.builtin Boolean
 " ---- end ----
 unlet s:term
 let g:greenit_loaded = 1
