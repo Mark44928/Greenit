@@ -18,8 +18,8 @@ local dark = {
     "#63C9A8", "#A88EA0", "#7FD7C4", "#A7C4A3",
   },
   brights = {
-    "#78997F", "#A88EA0", "#7BD88F", "#B8CC7A",
-    "#63C9A8", "#A88EA0", "#7FD7C4", "#C9E4CE",
+    "#78997F", "#D4B4C0", "#9BEDAF", "#D4E49A",
+    "#8FE4C4", "#D4B4C0", "#A7EBDC", "#C9E4CE",
   },
 }
 
@@ -35,8 +35,8 @@ local light = {
     "#63C9A8", "#A88EA0", "#7FD7C4", "#A7C4A3",
   },
   brights = {
-    "#56695C", "#A88EA0", "#7BD88F", "#B8CC7A",
-    "#63C9A8", "#A88EA0", "#7FD7C4", "#C9E4CE",
+    "#56695C", "#E49A8E", "#9BEDAF", "#D4E49A",
+    "#8FE4C4", "#D4B4C0", "#A7EBDC", "#FFFFFF",
   },
 }
 

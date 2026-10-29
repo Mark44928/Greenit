@@ -84,13 +84,13 @@ plus green accents).
 | color5     | #A88EA0   | magenta (rose)     |
 | color6     | #7FD7C4   | cyan (olive-cyan)  |
 | color7     | #A7C4A3   | white (soft sage)  |
-| color8     | #5F7A66   | bright black (moss)|
-| color9     | #A88EA0   | bright red (rose)  |
-| color10    | #7BD88F   | bright green       |
-| color11    | #B8CC7A   | bright yellow      |
-| color12    | #63C9A8   | bright blue        |
-| color13    | #A88EA0   | bright magenta     |
-| color14    | #7FD7C4   | bright cyan        |
+| color8     | #78997F   | bright black (sage)|
+| color9     | #D4B4C0   | bright red (rose)  |
+| color10    | #9BEDAF   | bright green       |
+| color11    | #D4E49A   | bright yellow      |
+| color12    | #8FE4C4   | bright blue        |
+| color13    | #D4B4C0   | bright magenta     |
+| color14    | #A7EBDC   | bright cyan        |
 | color15    | #C9E4CE   | bright white (sage)|
 
 ### Light
@@ -107,12 +107,12 @@ plus green accents).
 | color4     | #63C9A8   | blue (teal-green)  |
 | color5     | #A88EA0   | magenta (rose)     |
 | color6     | #7FD7C4   | cyan (olive-cyan)  |
-| color7     | #24382C   | white (deep pine)  |
-| color8     | #7A9078   | bright black (sage-gray)|
-| color9     | #C07A6E   | bright red (muted error)|
-| color10    | #7BD88F   | bright green       |
-| color11    | #B8CC7A   | bright yellow      |
-| color12    | #63C9A8   | bright blue        |
-| color13    | #A88EA0   | bright magenta     |
-| color14    | #7FD7C4   | bright cyan        |
-| color15    | #3B5944   | bright white (forest)|
+| color7     | #C9E4CE   | white (soft sage)  |
+| color8     | #56695C   | bright black (sage-gray)|
+| color9     | #E49A8E   | bright red (muted error)|
+| color10    | #9BEDAF   | bright green       |
+| color11    | #D4E49A   | bright yellow      |
+| color12    | #8FE4C4   | bright blue        |
+| color13    | #D4B4C0   | bright magenta     |
+| color14    | #A7EBDC   | bright cyan        |
+| color15    | #FFFFFF   | bright white       |
