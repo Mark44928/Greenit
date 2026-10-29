@@ -14,15 +14,13 @@ endif
 let s:light = !empty($GREENIT_LIGHT) && $GREENIT_LIGHT ==# '1'
 let s:light = s:light || (exists('g:greenit_light') && g:greenit_light)
 let s:name = s:light ? 'greenit-light' : 'greenit'
+" set background BEFORE clearing/defining highlights: changing bg resets
+" colorscheme state, so it must come first.
+execute "set background=" . (s:light ? 'light' : 'dark')
 hi clear
 if exists('syntax_reset')
   let b:current_after_color = 0
 endif
-if !has('gui_running') && !has('termguicolors') && &t_Co < 256
-  echoerr 'Greenit requires true-color (set termguicolors) or 256-color support'
-  finish
-endif
-execute "set background=" . (s:light ? 'light' : 'dark')
 " set g:colors_name AFTER set background (Vim resets colorscheme state on bg change)
 let g:colors_name = s:name
 if has('termguicolors') || has('gui_running')

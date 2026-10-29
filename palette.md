@@ -4,6 +4,8 @@ Greenit is a green-injected theme family — like energreen but slightly greener
 Every neutral is hue-shifted toward green (grays → sage/moss), and every accent
 is a green derivative. Two variants: **Dark** and **Light**.
 
+![Greenit palette preview — Dark and Light variants](assets/palette-preview.png)
+
 ## WCAG Contrast (measured)
 
 Ratios are foreground/background. WCAG 2.0 AA requires ≥ 4.5:1 for normal text.
