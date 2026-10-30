@@ -1,0 +1,9 @@
+# Greenit ${variant} — fzf color theme
+# Source with: . "$HOME/repos/Greenit/fzf/greenit-${variant}.sh"
+# 24-bit hex colors; requires a true-color terminal (COLORTERM=truecolor).
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --color=bg:${P.terminal.background},fg:${P.editor.fg},hl:${P.editor.comment} \
+  --color=fg+:${P.editor.fg},bg+:${P.editor.surface},hl+:${P.accents.primary} \
+  --color=info:${P.accents.secondary},prompt:${P.accents.primary},pointer:${P.editor.fg},marker:${P.accents.primary} \
+  --color=spinner:${P.accents.primary},header:${P.editor.comment},gutter:${P.editor.surface},border:${P.editor.comment} \
+"
