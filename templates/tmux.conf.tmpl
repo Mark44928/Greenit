@@ -1,0 +1,22 @@
+# Greenit ${variant} — tmux theme
+# Source: tmux source-file "$HOME/repos/Greenit/tmux/greenit-${variant}.conf"
+# Hex #RRGGBB colour values (tmux converts to nearest 256-colour slot).
+
+set -g status "on"
+set -g status-style "fg=${P.terminal.foreground},bg=${P.editor.surface}"
+set -g window-status-style "fg=${P.editor.comment}"
+set -g window-status-current-style "fg=${P.editor.bg},bg=${P.accents.primary},bold"
+set -g window-status-activity-style "fg=${P.accents.rose},bg=${P.editor.bg}"
+set -g window-status-bell-style "fg=${P.accents.error},bg=${P.editor.bg}"
+set -g pane-border-style "fg=${P.editor.comment}"
+set -g pane-active-border-style "fg=${P.accents.primary}"
+set -g message-style "fg=${P.terminal.foreground},bg=${P.editor.surface}"
+set -g message-command-style "fg=${P.terminal.foreground},bg=${P.editor.surface}"
+set -g mode-style "fg=${P.editor.bg},bg=${P.accents.primary},bold"
+set -g display-panes-active-colour "${P.accents.primary}"
+set -g display-panes-colour "${P.editor.comment}"
+set -g clock-mode-colour "${P.accents.primary}"
+set -g status-left "#[fg=${P.editor.bg},bg=${P.accents.primary},bold] #S #[default]"
+set -g status-right "#[fg=${P.editor.comment}] %H:%M #[default]"
+set -g status-left-length 100
+set -g status-right-length 100
