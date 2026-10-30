@@ -1,0 +1,125 @@
+# Greenit ${variant} — starship preset
+# Install: cp starship/greenit-${variant}.toml ~/.config/starship.toml
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = 'greenit'
+
+format = """
+[](bold fg:bg bg:rose)\
+$os\
+$username\
+[](bg:yellow fg:bg)\
+$directory\
+[](fg:yellow bg:cyan)\
+$git_branch\
+$git_status\
+[](fg:cyan bg:primary)\
+$nodejs\
+$rust\
+$golang\
+$python\
+[](fg:primary bg:comment)\
+$time\
+[ ](fg:comment)\
+$character\
+"""
+
+[os]
+disabled = false
+style = "bg:rose fg:bg"
+format = "[ $symbol ]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+AOSC = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+
+[username]
+show_always = true
+style_user = "bg:rose fg:bg"
+style_root = "bg:error fg:bg"
+format = '[$user ]($style)'
+
+[directory]
+style = "fg:bg bg:yellow"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+Documents = "󰈙 "
+Downloads = " "
+Music = " "
+Pictures = " "
+
+[git_branch]
+symbol = ""
+style = "bg:cyan"
+format = '[[ $symbol $branch ](fg:bg bg:cyan)]($style)'
+
+[git_status]
+style = "bg:cyan"
+format = '[[($all_status$ahead_behind )](fg:bg bg:cyan)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:primary"
+format = '[[ $symbol ($version) ](fg:bg bg:primary)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:primary"
+format = '[[ $symbol ($version) ](fg:bg bg:primary)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:primary"
+format = '[[ $symbol ($version) ](fg:bg bg:primary)]($style)'
+
+[python]
+symbol = ""
+style = "bg:primary"
+format = '[[ $symbol ($version) ](fg:bg bg:primary)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:comment"
+format = '[[  $time ](fg:bg bg:comment)]($style)'
+
+[character]
+success_symbol = '[](bold fg:primary)'
+error_symbol = '[](bold fg:error)'
+vimcmd_symbol = '[](bold fg:primary)'
+
+[palettes.greenit]
+bg = "${P.editor.bg}"
+surface = "${P.editor.surface}"
+fg = "${P.editor.fg}"
+comment = "${P.editor.comment}"
+primary = "${P.accents.primary}"
+secondary = "${P.accents.secondary}"
+yellow = "${P.accents.yellow}"
+rose = "${P.accents.rose}"
+cyan = "${P.accents.cyan}"
+error = "${P.accents.error}"
