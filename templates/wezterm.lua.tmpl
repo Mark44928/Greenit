@@ -1,0 +1,59 @@
+-- Greenit Dark — green-injected theme for WezTerm
+-- Install: cp extras/wezterm.lua ~/.config/wezterm/greenit.lua
+--   then in ~/.wezterm.lua:
+--     local greenit = require("greenit")
+--     greenit.apply(config)
+
+local M = {}
+{{#variant dark}}
+local dark = {
+  background = "${P.terminal.background}",
+  foreground = "${P.terminal.foreground}",
+  cursor_bg = "${P.terminal.cursor}",
+  cursor_fg = "${P.terminal.cursor_text}",
+  selection_bg = "${P.terminal.selection_background}",
+  selection_fg = "${P.terminal.selection_foreground}",
+  ansi = {
+    "${P.ansi[0]}", "${P.ansi[1]}", "${P.ansi[2]}", "${P.ansi[3]}",
+    "${P.ansi[4]}", "${P.ansi[5]}", "${P.ansi[6]}", "${P.ansi[7]}",
+  },
+  brights = {
+    "${P.ansi[8]}", "${P.ansi[9]}", "${P.ansi[10]}", "${P.ansi[11]}",
+    "${P.ansi[12]}", "${P.ansi[13]}", "${P.ansi[14]}", "${P.ansi[15]}",
+  },
+}
+{{/variant}}{{#variant light}}
+local light = {
+  background = "${P.terminal.background}",
+  foreground = "${P.terminal.foreground}",
+  cursor_bg = "${P.terminal.cursor}",
+  cursor_fg = "${P.terminal.cursor_text}",
+  selection_bg = "${P.terminal.selection_background}",
+  selection_fg = "${P.terminal.selection_foreground}",
+  ansi = {
+    "${variants.dark.ansi[0]}", "${variants.dark.ansi[1]}", "${variants.dark.ansi[2]}", "${variants.dark.ansi[3]}",
+    "${variants.dark.ansi[4]}", "${variants.dark.ansi[5]}", "${variants.dark.ansi[6]}", "${variants.dark.ansi[7]}",
+  },
+  brights = {
+    "${P.ansi[8]}", "${P.ansi[9]}", "${P.ansi[10]}", "${P.ansi[11]}",
+    "${P.ansi[12]}", "${P.ansi[13]}", "${P.ansi[14]}", "${P.ansi[15]}",
+  },
+}
+{{/variant}}
+function M.apply(config, variant)
+  local theme = (variant == "light") and light or dark
+  config.colors = {
+    background = theme.background,
+    foreground = theme.foreground,
+    cursor_bg = theme.cursor_bg,
+    cursor_fg = theme.cursor_fg,
+    selection_bg = theme.selection_bg,
+    selection_fg = theme.selection_fg,
+    ansi = theme.ansi,
+    brights = theme.brights,
+  }
+  config.color_scheme = nil
+  config.color_schemes = nil
+end
+
+return M
