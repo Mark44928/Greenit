@@ -1,0 +1,47 @@
+# Greenit light — dircolors (LS_COLORS) theme
+# eval "$(dircolors -b dircolors/greenit-light)"
+# dircolors expresses colors as ANSI codes only, so this theme maps file
+# classes to the palette's ANSI slots (color0..color15) as rendered by the
+# terminal. Install the file matching your terminal variant.
+
+TERM linux
+TERM linux-c
+TERM mach-color
+TERM console
+TERM cons25
+TERM color-xterm
+TERM rxvt
+TERM rxvt-color
+TERM xterm
+TERM xterm-color
+TERM *color*
+TERM cygwin
+
+NORMAL 00
+FILE 00
+RESET 00
+DIR 01;34
+LINK 01;36
+MULTIHARDLINK 00
+FORK 00
+EXEC 01;32
+FIFO 40;33;01
+SOCK 01;35
+DOOR 01;35
+BLK 01;34
+CHR 01;34
+ORPHAN 01;05;37;41
+MISSING 01;05;37;41
+ORPHAN 40;31;01
+
+# Archives — color1 (rose/red)
+.tar 01;31 .tgz 01;31 .arc 01;31 .arj 01;31 .taz 01;31 .lha 01;31 .lz4 01;31 .lzh 01;31 .lzma 01;31 .tlz 01;31 .txz 01;31 .tzo 01;31 .t7z 01;31 .zip 01;31 .z 01;31 .dz 01;31 .gz 01;31 .lrz 01;31 .lz 01;31 .lzo 01;31 .xz 01;31 .zst 01;31 .tzst 01;31 .bz2 01;31 .bz 01;31 .tz 01;31 .deb 01;31 .rpm 01;31 .jar 01;31 .war 01;31 .ear 01;31 .sar 01;31 .ar 01;31 .7z 01;31
+
+# Images — color5 (magenta/rose)
+.jpg 01;35 .jpeg 01;35 .mjpg 01;35 .mjpeg 01;35 .gif 01;35 .bmp 01;35 .pbm 01;35 .pgm 01;35 .ppm 01;35 .tga 01;35 .xbm 01;35 .xpm 01;35 .tif 01;35 .tiff 01;35 .png 01;35 .svg 01;35 .svgz 01;35 .mng 01;35 .pcx 01;35 .mov 01;35 .mpg 01;35 .mpeg 01;35 .m2v 01;35 .mkv 01;35 .webm 01;35 .ogm 01;35 .mp4 01;35 .m4v 01;35 .mp4v 01;35 .vob 01;35 .qt 01;35 .nuv 01;35 .wmv 01;35 .asf 01;35 .rm 01;35 .rmvb 01;35 .flc 01;35 .avi 01;35 .fli 01;35 .flv 01;35 .gl 01;35 .dl 01;35 .xcf 01;35 .xwd 01;35 .ogv 01;35 .ogx 01;35
+
+# Audio — color6 (cyan)
+.aac 01;36 .au 01;36 .flac 01;36 .m4a 01;36 .mid 01;36 .midi 01;36 .mka 01;36 .mp3 01;36 .mpc 01;36 .ogg 01;36 .ra 01;36 .wav 01;36
+
+# Documents / code — color3 (yellow/moss)
+.doc 01;33 .docx 01;33 .xls 01;33 .xlsx 01;33 .ppt 01;33 .pptx 01;33 .pdf 01;33 .odt 01;33 .ods 01;33 .odp 01;33 .txt 01;33 .rtf 01;33 .md 01;33
