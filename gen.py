@@ -133,6 +133,19 @@ BUILDS = [
     ("greenit.itermcolors.tmpl", "extras/greenit.itermcolors", "dark"),
     ("greenit.vim.tmpl", "colors/greenit.vim", None),
     ("greenit-light.vim.tmpl", "colors/greenit-light.vim", "dark"),
+    # New app integrations (both variants)
+    ("bat.tmTheme.tmpl", "bat/greenit-dark.tmTheme", "dark"),
+    ("bat.tmTheme.tmpl", "bat/greenit-light.tmTheme", "light"),
+    ("fzf.sh.tmpl", "fzf/greenit-dark.sh", "dark"),
+    ("fzf.sh.tmpl", "fzf/greenit-light.sh", "light"),
+    ("dircolors.tmpl", "dircolors/greenit-dark", "dark"),
+    ("dircolors.tmpl", "dircolors/greenit-light", "light"),
+    ("starship.toml.tmpl", "starship/greenit-dark.toml", "dark"),
+    ("starship.toml.tmpl", "starship/greenit-light.toml", "light"),
+    ("tmux.conf.tmpl", "tmux/greenit-dark.conf", "dark"),
+    ("tmux.conf.tmpl", "tmux/greenit-light.conf", "light"),
+    ("btop.theme.tmpl", "btop/greenit-dark.theme", "dark"),
+    ("btop.theme.tmpl", "btop/greenit-light.theme", "light"),
 ]
 
 
@@ -147,9 +160,15 @@ def main():
             ctx = {"variants": palettes}
         else:
             p = palettes[variant]
-            ctx = {"P": p, "variant": variant, "is_light": variant == "light"}
+            ctx = {
+                "P": p,
+                "variant": variant,
+                "is_light": variant == "light",
+                "vid": "01" if variant == "dark" else "02",
+            }
         text = render(template, ctx)
         out_path = ROOT / output
+        out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(text, encoding="utf-8")
         rendered += 1
         print(f"rendered {out_path}")
