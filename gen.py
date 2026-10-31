@@ -17,10 +17,52 @@ TEMPLATES = ROOT / "templates"
 TAG_RE = re.compile(r"\{\{(#variant|#if|#else|/variant|/if)\b([^}]*)\}\}")
 INTERP_RE = re.compile(r"\$\{([^}]+)\}")
 
+def _ansi256_cube(n):
+    return (0, 95, 135, 175, 215, 255)[n]
+
+
+def _ansi256_gray(n):
+    return 8 + n * 10
+
+
+def _ansi256_colors():
+    colors = []
+    # 0-15: standard ANSI
+    for i in range(16):
+        r = (i & 4) and 255 or 0
+        g = (i & 2) and 255 or 0
+        b = (i & 1) and 255 or 0
+        colors.append((r, g, b))
+    # 16-231: 6x6x6 color cube
+    for r in range(6):
+        for g in range(6):
+            for b in range(6):
+                colors.append((_ansi256_cube(r), _ansi256_cube(g), _ansi256_cube(b)))
+    # 232-255: grayscale
+    for i in range(24):
+        colors.append((_ansi256_gray(i), _ansi256_gray(i), _ansi256_gray(i)))
+    return colors
+
+
+_ANSI256 = _ansi256_colors()
+
+
+def ansi256(h):
+    h = h.lstrip("#")
+    r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+    best, best_d = 0, None
+    for i, (cr, cg, cb) in enumerate(_ANSI256):
+        d = (r - cr) ** 2 + (g - cg) ** 2 + (b - cb) ** 2
+        if best_d is None or d < best_d:
+            best, best_d = i, d
+    return str(best)
+
+
 FUNCS = {
     "rgb_r": lambda h: f"{int(h[1:3], 16) / 255:.3f}",
     "rgb_g": lambda h: f"{int(h[3:5], 16) / 255:.3f}",
     "rgb_b": lambda h: f"{int(h[5:7], 16) / 255:.3f}",
+    "ansi256": ansi256,
 }
 
 
@@ -149,6 +191,23 @@ BUILDS = [
     # Emacs theme (both variants)
     ("emacs-theme.el.tmpl", "emacs/greenit-dark-theme.el", "dark"),
     ("emacs-theme.el.tmpl", "emacs/greenit-light-theme.el", "light"),
+    # Non-GUI shell / git / tooling integrations (both variants)
+    ("powerlevel10k.zsh.tmpl", "powerlevel10k/greenit-dark.zsh", "dark"),
+    ("powerlevel10k.zsh.tmpl", "powerlevel10k/greenit-light.zsh", "light"),
+    ("fish-theme.tmpl", "fish/greenit-dark.theme", "dark"),
+    ("fish-theme.tmpl", "fish/greenit-light.theme", "light"),
+    ("git-config.tmpl", "git/greenit-dark.config", "dark"),
+    ("git-config.tmpl", "git/greenit-light.config", "light"),
+    ("delta-config.tmpl", "delta/greenit-dark.config", "dark"),
+    ("delta-config.tmpl", "delta/greenit-light.config", "light"),
+    ("lsd-colors.tmpl", "lsd/greenit-dark.colors.yaml", "dark"),
+    ("lsd-colors.tmpl", "lsd/greenit-light.colors.yaml", "light"),
+    ("exa-colors.tmpl", "exa/greenit-dark.colors", "dark"),
+    ("exa-colors.tmpl", "exa/greenit-light.colors", "light"),
+    ("ripgrep-config.tmpl", "ripgrep/greenit-dark.rc", "dark"),
+    ("ripgrep-config.tmpl", "ripgrep/greenit-light.rc", "light"),
+    ("less-termcap.tmpl", "less/greenit-dark.termcap", "dark"),
+    ("less-termcap.tmpl", "less/greenit-light.termcap", "light"),
 ]
 
 
