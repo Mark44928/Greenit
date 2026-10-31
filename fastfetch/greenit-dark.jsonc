@@ -1,0 +1,46 @@
+// Greenit dark — fastfetch config
+// Install: cp fastfetch/greenit-dark.jsonc ~/.config/fastfetch/config.jsonc
+// Load: fastfetch -c fastfetch/greenit-dark.jsonc
+
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "color": {
+      "1": "#7BD88F",
+      "2": "#63C9A8",
+      "3": "#B8CC7A",
+      "4": "#7FD7C4",
+      "5": "#A88EA0",
+      "6": "#C9E4CE"
+    },
+    "padding": { "right": 2 }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "#7BD88F",
+      "title": "#C9E4CE",
+      "output": "#C9E4CE",
+      "separator": "#78997F"
+    },
+    "key": { "width": 14 },
+    "percent": { "type": 3 }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "terminal",
+    "cpu",
+    "memory",
+    "disk",
+    "break",
+    "colors"
+  ]
+}

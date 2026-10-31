@@ -1,0 +1,46 @@
+// Greenit ${variant} — fastfetch config
+// Install: cp fastfetch/greenit-${variant}.jsonc ~/.config/fastfetch/config.jsonc
+// Load: fastfetch -c fastfetch/greenit-${variant}.jsonc
+
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "color": {
+      "1": "${P.accents.primary}",
+      "2": "${P.accents.secondary}",
+      "3": "${P.accents.yellow}",
+      "4": "${P.accents.cyan}",
+      "5": "${P.accents.rose}",
+      "6": "${P.editor.fg}"
+    },
+    "padding": { "right": 2 }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "${P.accents.primary}",
+      "title": "${P.editor.fg}",
+      "output": "${P.editor.fg}",
+      "separator": "${P.editor.comment}"
+    },
+    "key": { "width": 14 },
+    "percent": { "type": 3 }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "terminal",
+    "cpu",
+    "memory",
+    "disk",
+    "break",
+    "colors"
+  ]
+}

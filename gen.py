@@ -214,6 +214,9 @@ BUILDS = [
     ("ripgrep-config.tmpl", "ripgrep/greenit-light.rc", "light"),
     ("less-termcap.tmpl", "less/greenit-dark.termcap", "dark"),
     ("less-termcap.tmpl", "less/greenit-light.termcap", "light"),
+    # Fastfetch config (both variants)
+    ("fastfetch-config.tmpl", "fastfetch/greenit-dark.jsonc", "dark"),
+    ("fastfetch-config.tmpl", "fastfetch/greenit-light.jsonc", "light"),
 ]
 
 
