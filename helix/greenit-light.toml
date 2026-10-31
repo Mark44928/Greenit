@@ -1,0 +1,87 @@
+# Greenit light — helix theme.toml
+# Install: cp helix/greenit-light.toml ~/.config/helix/themes/greenit-light.toml
+# Select: theme = "greenit-light" in ~/.config/helix/config.toml
+
+"ui.background" = { fg = "#24382C", bg = "#F2F7EF" }
+"ui.background.separator" = { fg = "#56695C" }
+"ui.linenr" = { fg = "#56695C" }
+"ui.linenr.selected" = { fg = "#7BD88F" }
+"ui.statusline" = { fg = "#24382C", bg = "#E6EFE2", bold = true }
+"ui.statusline.inactive" = { fg = "#56695C", bg = "#F2F7EF" }
+"ui.popup" = { bg = "#E6EFE2" }
+"ui.window" = { fg = "#56695C" }
+"ui.help" = { bg = "#E6EFE2", fg = "#24382C" }
+"ui.text" = { fg = "#24382C" }
+"ui.text.focus" = { fg = "#24382C", modifiers = ["bold"] }
+"ui.text.inactive" = "#56695C"
+"ui.text.directory" = { fg = "#7BD88F" }
+"ui.virtual" = { fg = "#56695C" }
+"ui.selection" = { bg = "#7BD88F" }
+"ui.selection.primary" = { bg = "#7BD88F" }
+"ui.cursor.select" = { bg = "#63C9A8" }
+"ui.cursor.insert" = { bg = "#7FD7C4" }
+"ui.cursor.match" = { fg = "#F2F7EF", bg = "#B8CC7A" }
+"ui.cursor" = { modifiers = ["reversed"] }
+"ui.cursorline.primary" = { bg = "#E6EFE2" }
+"ui.highlight" = { bg = "#E6EFE2" }
+"ui.menu" = { fg = "#24382C", bg = "#E6EFE2" }
+"ui.menu.selected" = { fg = "#F2F7EF", bg = "#7BD88F" }
+
+"diagnostic.hint" = { underline = { color = "#7FD7C4", style = "curl" } }
+"diagnostic.info" = { underline = { color = "#63C9A8", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "#B8CC7A", style = "curl" } }
+"diagnostic.error" = { underline = { color = "#C07A6E", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+warning = "#B8CC7A"
+error = "#C07A6E"
+info = "#63C9A8"
+hint = "#7FD7C4"
+
+attribute = "#63C9A8"
+keyword = "#A88EA0"
+"keyword.directive" = "#A88EA0"
+namespace = "#A88EA0"
+punctuation = "#56695C"
+operator = "#B8CC7A"
+special = "#7BD88F"
+variable = "#24382C"
+"variable.builtin" = "#A88EA0"
+type = "#7FD7C4"
+constructor = "#63C9A8"
+function = "#7BD88F"
+"function.macro" = "#7BD88F"
+tag = "#A88EA0"
+comment = "#56695C"
+constant = "#A88EA0"
+string = "#7BD88F"
+"constant.numeric" = "#7FD7C4"
+"constant.character.escape" = "#63C9A8"
+label = "#B8CC7A"
+tabstop = { modifiers = ["italic"], bg = "#E6EFE2" }
+
+"markup.heading" = { fg = "#7BD88F", modifiers = ["bold"] }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "#7FD7C4", modifiers = ["underlined"] }
+"markup.raw" = "#7BD88F"
+
+"diff.plus" = "#7BD88F"
+"diff.minus" = "#C07A6E"
+"diff.delta" = "#B8CC7A"
+
+rainbow = ["#7BD88F", "#63C9A8", "#B8CC7A", "#7FD7C4", "#A88EA0"]
+
+[palette]
+fg = "#24382C"
+bg = "#F2F7EF"
+primary = "#7BD88F"
+secondary = "#63C9A8"
+yellow = "#B8CC7A"
+rose = "#A88EA0"
+cyan = "#7FD7C4"
+error = "#C07A6E"
+comment = "#56695C"
+surface = "#E6EFE2"

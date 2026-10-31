@@ -1,0 +1,56 @@
+# Greenit ${variant} — yazi theme.toml
+# Install: cp yazi/greenit-${variant}.toml ~/.config/yazi/theme.toml
+# Dark/light variants are separate files since yazi auto-loads theme-dark.toml /
+# theme-light.toml based on terminal color mode.
+
+[flavor]
+dark = ""
+light = ""
+
+[app]
+overall = { fg = "${P.editor.fg}", bg = "${P.editor.bg}" }
+
+[mgr]
+cwd = { fg = "${P.accents.primary}", bold = true }
+find_keyword = { fg = "${P.accents.yellow}", bold = true, italic = true, underline = true }
+find_position = { fg = "${P.accents.secondary}", bg = "reset", bold = true, italic = true }
+symlink_target = { italic = true }
+marker_copied = { fg = "${P.accents.primary}", bg = "${P.accents.primary}" }
+marker_cut = { fg = "${P.accents.error}", bg = "${P.accents.error}" }
+marker_marked = { fg = "${P.accents.cyan}", bg = "${P.accents.cyan}" }
+marker_selected = { fg = "${P.accents.yellow}", bg = "${P.accents.yellow}" }
+count_copied = { fg = "${P.editor.bg}", bg = "${P.accents.primary}" }
+count_cut = { fg = "${P.editor.bg}", bg = "${P.accents.error}" }
+count_selected = { fg = "${P.editor.bg}", bg = "${P.accents.yellow}" }
+border_symbol = "│"
+border_style = { fg = "${P.editor.comment}" }
+
+[tabs]
+active = { bg = "${P.accents.primary}", bold = true }
+inactive = { fg = "${P.editor.comment}", bg = "${P.editor.bg}" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+[mode]
+normal_main = { bg = "${P.accents.primary}", bold = true }
+normal_alt = { fg = "${P.accents.primary}", bg = "${P.editor.surface}" }
+select_main = { bg = "${P.accents.error}", bold = true }
+select_alt = { fg = "${P.accents.error}", bg = "${P.editor.surface}" }
+unset_main = { bg = "${P.accents.error}", bold = true }
+unset_alt = { fg = "${P.accents.error}", bg = "${P.editor.surface}" }
+
+[status]
+overall = { fg = "${P.editor.fg}", bg = "${P.editor.surface}" }
+
+[filetype]
+rules = [
+	{ mime = "image/*", fg = "${P.accents.primary}" },
+	{ mime = "{audio,video}/*", fg = "${P.accents.secondary}" },
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "${P.accents.error}" },
+	{ mime = "application/{pdf,doc,rtf}", fg = "${P.accents.cyan}" },
+	{ mime = "vfs/{absent,stale}", fg = "${P.editor.comment}" },
+	{ url = "*", is = "orphan", bg = "${P.accents.error}" },
+	{ url = "*", is = "exec", fg = "${P.accents.primary}" },
+	{ url = "*", is = "dummy", bg = "${P.accents.error}" },
+	{ url = "*/", fg = "${P.accents.secondary}" }
+]

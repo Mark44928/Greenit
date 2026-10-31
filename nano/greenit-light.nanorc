@@ -1,0 +1,50 @@
+# Greenit light — nano nanorc theme
+# Install: cp nano/greenit-light.nanorc ~/.config/nano/nanorc
+# or: echo "include ~/.config/nano/nanorc" >> ~/.nanorc
+# Colors use nano's 3-digit hex #RGB form (high nibble of each channel).
+
+set titlecolor bold,#7D8,#F2F7EF
+set keycolor bold,#6CA,#F2F7EF
+set selectedcolor #232,#7D8
+set statuscolor #232,#EEE
+set errorcolor bold,#C76,#F2F7EF
+set functioncolor #7DC,#F2F7EF
+set numbercolor #BC7,#F2F7EF
+set stripecolor #565,#F2F7EF
+set scrollercolor #565,#F2F7EF
+set promptcolor #7D8,#F2F7EF
+set minicolor #232,#F2F7EF
+set spotcolor #6CA,#F2F7EF
+set icolor #BC7,#F2F7EF
+
+# Basic syntax highlighting — mirrors the vim recipe
+syntax "greenit" "\.(c|h|py|sh|js|ts|lua|rs|go|vim|toml|yaml|yml|json|md|txt|conf)$"
+
+# Comments
+color #565,normal "^\s*#.*$"
+color #565,normal "//.*$"
+color #565,normal "/\*.*\*/"
+
+# Strings
+color #7D8,normal "\"[^\"]*\""
+color #7D8,normal "'[^']*'"
+
+# Keywords
+color #A8A,normal "\<(if|then|else|elif|fi|do|done|case|esac|for|while|until|function|return|break|continue)\>"
+color #A8A,normal "\<(if|elif|else|for|while|def|class|return|break|continue|import|from|as|with|try|except|finally|lambda|yield|async|await)\>"
+
+# Types/builtins
+color #7DC,normal "\<(int|float|str|bool|list|dict|tuple|set|None|True|False|print|len|open|range|print)\>"
+color #7DC,normal "\<(string|integer|number|boolean|array|object|null|true|false|null)\>"
+
+# Numbers
+color #7DC,normal "[0-9]+"
+
+# Operators/punctuation
+color #BC7,normal "\(\)\{\}\[\]"
+color #BC7,normal "[=+\-*/%!<>&|^~,.;:]"
+
+# Filenames/paths
+color #6CA,normal "\b[A-Za-z_][A-Za-z0-9_]*\.[a-zA-Z0-9_]+\b"
+
+include "/usr/share/nano/*.nanorc"

@@ -1,0 +1,56 @@
+# Greenit light — yazi theme.toml
+# Install: cp yazi/greenit-light.toml ~/.config/yazi/theme.toml
+# Dark/light variants are separate files since yazi auto-loads theme-dark.toml /
+# theme-light.toml based on terminal color mode.
+
+[flavor]
+dark = ""
+light = ""
+
+[app]
+overall = { fg = "#24382C", bg = "#F2F7EF" }
+
+[mgr]
+cwd = { fg = "#7BD88F", bold = true }
+find_keyword = { fg = "#B8CC7A", bold = true, italic = true, underline = true }
+find_position = { fg = "#63C9A8", bg = "reset", bold = true, italic = true }
+symlink_target = { italic = true }
+marker_copied = { fg = "#7BD88F", bg = "#7BD88F" }
+marker_cut = { fg = "#C07A6E", bg = "#C07A6E" }
+marker_marked = { fg = "#7FD7C4", bg = "#7FD7C4" }
+marker_selected = { fg = "#B8CC7A", bg = "#B8CC7A" }
+count_copied = { fg = "#F2F7EF", bg = "#7BD88F" }
+count_cut = { fg = "#F2F7EF", bg = "#C07A6E" }
+count_selected = { fg = "#F2F7EF", bg = "#B8CC7A" }
+border_symbol = "│"
+border_style = { fg = "#56695C" }
+
+[tabs]
+active = { bg = "#7BD88F", bold = true }
+inactive = { fg = "#56695C", bg = "#F2F7EF" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+[mode]
+normal_main = { bg = "#7BD88F", bold = true }
+normal_alt = { fg = "#7BD88F", bg = "#E6EFE2" }
+select_main = { bg = "#C07A6E", bold = true }
+select_alt = { fg = "#C07A6E", bg = "#E6EFE2" }
+unset_main = { bg = "#C07A6E", bold = true }
+unset_alt = { fg = "#C07A6E", bg = "#E6EFE2" }
+
+[status]
+overall = { fg = "#24382C", bg = "#E6EFE2" }
+
+[filetype]
+rules = [
+	{ mime = "image/*", fg = "#7BD88F" },
+	{ mime = "{audio,video}/*", fg = "#63C9A8" },
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#C07A6E" },
+	{ mime = "application/{pdf,doc,rtf}", fg = "#7FD7C4" },
+	{ mime = "vfs/{absent,stale}", fg = "#56695C" },
+	{ url = "*", is = "orphan", bg = "#C07A6E" },
+	{ url = "*", is = "exec", fg = "#7BD88F" },
+	{ url = "*", is = "dummy", bg = "#C07A6E" },
+	{ url = "*/", fg = "#63C9A8" }
+]

@@ -1,0 +1,34 @@
+# Greenit light — zellij theme
+# Install: mkdir -p ~/.config/zellij/themes && cp zellij/greenit-light.kdl ~/.config/zellij/themes/
+# Load: theme "greenit-light" in ~/.config/zellij/config.kdl
+# Colors use #RRGGBB hex format.
+
+themes {
+	greenit-light {
+		fg "#24382C"
+		bg "#F2F7EF"
+		black "#56695C"
+		red "#C07A6E"
+		green "#7BD88F"
+		yellow "#B8CC7A"
+		blue "#63C9A8"
+		magenta "#A88EA0"
+		cyan "#7FD7C4"
+		white "#24382C"
+		orange "#C07A6E"
+	}
+
+	greenit-light-syntax {
+		fg "#24382C"
+		bg "#F2F7EF"
+		black "#56695C"
+		red "#A88EA0"
+		green "#7BD88F"
+		yellow "#B8CC7A"
+		blue "#7FD7C4"
+		magenta "#63C9A8"
+		cyan "#7BD88F"
+		white "#24382C"
+		orange "#C07A6E"
+	}
+}

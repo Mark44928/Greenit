@@ -1,0 +1,34 @@
+# Greenit ${variant} — zellij theme
+# Install: mkdir -p ~/.config/zellij/themes && cp zellij/greenit-${variant}.kdl ~/.config/zellij/themes/
+# Load: theme "greenit-${variant}" in ~/.config/zellij/config.kdl
+# Colors use #RRGGBB hex format.
+
+themes {
+	greenit-${variant} {
+		fg "${P.editor.fg}"
+		bg "${P.editor.bg}"
+		black "${P.editor.comment}"
+		red "${P.accents.error}"
+		green "${P.accents.primary}"
+		yellow "${P.accents.yellow}"
+		blue "${P.accents.secondary}"
+		magenta "${P.accents.rose}"
+		cyan "${P.accents.cyan}"
+		white "${P.editor.fg}"
+		orange "${P.accents.error}"
+	}
+
+	greenit-${variant}-syntax {
+		fg "${P.editor.fg}"
+		bg "${P.editor.bg}"
+		black "${P.editor.comment}"
+		red "${P.accents.rose}"
+		green "${P.accents.primary}"
+		yellow "${P.accents.yellow}"
+		blue "${P.accents.cyan}"
+		magenta "${P.accents.secondary}"
+		cyan "${P.accents.primary}"
+		white "${P.editor.fg}"
+		orange "${P.accents.error}"
+	}
+}

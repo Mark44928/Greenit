@@ -1,0 +1,87 @@
+# Greenit ${variant} — helix theme.toml
+# Install: cp helix/greenit-${variant}.toml ~/.config/helix/themes/greenit-${variant}.toml
+# Select: theme = "greenit-${variant}" in ~/.config/helix/config.toml
+
+"ui.background" = { fg = "${P.editor.fg}", bg = "${P.editor.bg}" }
+"ui.background.separator" = { fg = "${P.editor.comment}" }
+"ui.linenr" = { fg = "${P.editor.comment}" }
+"ui.linenr.selected" = { fg = "${P.accents.primary}" }
+"ui.statusline" = { fg = "${P.editor.fg}", bg = "${P.editor.surface}", bold = true }
+"ui.statusline.inactive" = { fg = "${P.editor.comment}", bg = "${P.editor.bg}" }
+"ui.popup" = { bg = "${P.editor.surface}" }
+"ui.window" = { fg = "${P.editor.comment}" }
+"ui.help" = { bg = "${P.editor.surface}", fg = "${P.editor.fg}" }
+"ui.text" = { fg = "${P.editor.fg}" }
+"ui.text.focus" = { fg = "${P.editor.fg}", modifiers = ["bold"] }
+"ui.text.inactive" = "${P.editor.comment}"
+"ui.text.directory" = { fg = "${P.accents.primary}" }
+"ui.virtual" = { fg = "${P.editor.comment}" }
+"ui.selection" = { bg = "${P.accents.primary}" }
+"ui.selection.primary" = { bg = "${P.accents.primary}" }
+"ui.cursor.select" = { bg = "${P.accents.secondary}" }
+"ui.cursor.insert" = { bg = "${P.accents.cyan}" }
+"ui.cursor.match" = { fg = "${P.editor.bg}", bg = "${P.accents.yellow}" }
+"ui.cursor" = { modifiers = ["reversed"] }
+"ui.cursorline.primary" = { bg = "${P.editor.surface}" }
+"ui.highlight" = { bg = "${P.editor.surface}" }
+"ui.menu" = { fg = "${P.editor.fg}", bg = "${P.editor.surface}" }
+"ui.menu.selected" = { fg = "${P.editor.bg}", bg = "${P.accents.primary}" }
+
+"diagnostic.hint" = { underline = { color = "${P.accents.cyan}", style = "curl" } }
+"diagnostic.info" = { underline = { color = "${P.accents.secondary}", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "${P.accents.yellow}", style = "curl" } }
+"diagnostic.error" = { underline = { color = "${P.accents.error}", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+warning = "${P.accents.yellow}"
+error = "${P.accents.error}"
+info = "${P.accents.secondary}"
+hint = "${P.accents.cyan}"
+
+attribute = "${P.accents.secondary}"
+keyword = "${P.accents.rose}"
+"keyword.directive" = "${P.accents.rose}"
+namespace = "${P.accents.rose}"
+punctuation = "${P.editor.comment}"
+operator = "${P.accents.yellow}"
+special = "${P.accents.primary}"
+variable = "${P.editor.fg}"
+"variable.builtin" = "${P.accents.rose}"
+type = "${P.accents.cyan}"
+constructor = "${P.accents.secondary}"
+function = "${P.accents.primary}"
+"function.macro" = "${P.accents.primary}"
+tag = "${P.accents.rose}"
+comment = "${P.editor.comment}"
+constant = "${P.accents.rose}"
+string = "${P.accents.primary}"
+"constant.numeric" = "${P.accents.cyan}"
+"constant.character.escape" = "${P.accents.secondary}"
+label = "${P.accents.yellow}"
+tabstop = { modifiers = ["italic"], bg = "${P.editor.surface}" }
+
+"markup.heading" = { fg = "${P.accents.primary}", modifiers = ["bold"] }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "${P.accents.cyan}", modifiers = ["underlined"] }
+"markup.raw" = "${P.accents.primary}"
+
+"diff.plus" = "${P.accents.primary}"
+"diff.minus" = "${P.accents.error}"
+"diff.delta" = "${P.accents.yellow}"
+
+rainbow = ["${P.accents.primary}", "${P.accents.secondary}", "${P.accents.yellow}", "${P.accents.cyan}", "${P.accents.rose}"]
+
+[palette]
+fg = "${P.editor.fg}"
+bg = "${P.editor.bg}"
+primary = "${P.accents.primary}"
+secondary = "${P.accents.secondary}"
+yellow = "${P.accents.yellow}"
+rose = "${P.accents.rose}"
+cyan = "${P.accents.cyan}"
+error = "${P.accents.error}"
+comment = "${P.editor.comment}"
+surface = "${P.editor.surface}"

@@ -1,0 +1,34 @@
+# Greenit dark — zellij theme
+# Install: mkdir -p ~/.config/zellij/themes && cp zellij/greenit-dark.kdl ~/.config/zellij/themes/
+# Load: theme "greenit-dark" in ~/.config/zellij/config.kdl
+# Colors use #RRGGBB hex format.
+
+themes {
+	greenit-dark {
+		fg "#C9E4CE"
+		bg "#0C1F17"
+		black "#78997F"
+		red "#C07A6E"
+		green "#7BD88F"
+		yellow "#B8CC7A"
+		blue "#63C9A8"
+		magenta "#A88EA0"
+		cyan "#7FD7C4"
+		white "#C9E4CE"
+		orange "#C07A6E"
+	}
+
+	greenit-dark-syntax {
+		fg "#C9E4CE"
+		bg "#0C1F17"
+		black "#78997F"
+		red "#A88EA0"
+		green "#7BD88F"
+		yellow "#B8CC7A"
+		blue "#7FD7C4"
+		magenta "#63C9A8"
+		cyan "#7BD88F"
+		white "#C9E4CE"
+		orange "#C07A6E"
+	}
+}

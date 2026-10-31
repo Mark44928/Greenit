@@ -63,12 +63,18 @@ def rgb(h):
     return f"{int(h[0:2], 16)},{int(h[2:4], 16)},{int(h[4:6], 16)}"
 
 
+def rgb3(h):
+    h = h.lstrip("#")
+    return f"#{h[0]}{h[2]}{h[4]}"
+
+
 FUNCS = {
     "rgb_r": lambda h: f"{int(h[1:3], 16) / 255:.3f}",
     "rgb_g": lambda h: f"{int(h[3:5], 16) / 255:.3f}",
     "rgb_b": lambda h: f"{int(h[5:7], 16) / 255:.3f}",
     "ansi256": ansi256,
     "rgb": rgb,
+    "rgb3": rgb3,
 }
 
 
@@ -217,6 +223,17 @@ BUILDS = [
     # Fastfetch config (both variants)
     ("fastfetch-config.tmpl", "fastfetch/greenit-dark.jsonc", "dark"),
     ("fastfetch-config.tmpl", "fastfetch/greenit-light.jsonc", "light"),
+    # Additional editors & tools (both variants)
+    ("yazi-theme.tmpl", "yazi/greenit-dark.toml", "dark"),
+    ("yazi-theme.tmpl", "yazi/greenit-light.toml", "light"),
+    ("helix-theme.tmpl", "helix/greenit-dark.toml", "dark"),
+    ("helix-theme.tmpl", "helix/greenit-light.toml", "light"),
+    ("lazygit-theme.tmpl", "lazygit/greenit-dark.yml", "dark"),
+    ("lazygit-theme.tmpl", "lazygit/greenit-light.yml", "light"),
+    ("nano-theme.tmpl", "nano/greenit-dark.nanorc", "dark"),
+    ("nano-theme.tmpl", "nano/greenit-light.nanorc", "light"),
+    ("zellij-theme.tmpl", "zellij/greenit-dark.kdl", "dark"),
+    ("zellij-theme.tmpl", "zellij/greenit-light.kdl", "light"),
 ]
 
 

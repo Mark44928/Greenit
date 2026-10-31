@@ -1,0 +1,50 @@
+# Greenit ${variant} — nano nanorc theme
+# Install: cp nano/greenit-${variant}.nanorc ~/.config/nano/nanorc
+# or: echo "include ~/.config/nano/nanorc" >> ~/.nanorc
+# Colors use nano's 3-digit hex #RGB form (high nibble of each channel).
+
+set titlecolor bold,${rgb3:P.accents.primary},${P.editor.bg}
+set keycolor bold,${rgb3:P.accents.secondary},${P.editor.bg}
+set selectedcolor ${rgb3:P.editor.fg},${rgb3:P.accents.primary}
+set statuscolor ${rgb3:P.editor.fg},${rgb3:P.editor.surface}
+set errorcolor bold,${rgb3:P.accents.error},${P.editor.bg}
+set functioncolor ${rgb3:P.accents.cyan},${P.editor.bg}
+set numbercolor ${rgb3:P.accents.yellow},${P.editor.bg}
+set stripecolor ${rgb3:P.editor.comment},${P.editor.bg}
+set scrollercolor ${rgb3:P.editor.comment},${P.editor.bg}
+set promptcolor ${rgb3:P.accents.primary},${P.editor.bg}
+set minicolor ${rgb3:P.editor.fg},${P.editor.bg}
+set spotcolor ${rgb3:P.accents.secondary},${P.editor.bg}
+set icolor ${rgb3:P.accents.yellow},${P.editor.bg}
+
+# Basic syntax highlighting — mirrors the vim recipe
+syntax "greenit" "\.(c|h|py|sh|js|ts|lua|rs|go|vim|toml|yaml|yml|json|md|txt|conf)$"
+
+# Comments
+color ${rgb3:P.editor.comment},normal "^\s*#.*$"
+color ${rgb3:P.editor.comment},normal "//.*$"
+color ${rgb3:P.editor.comment},normal "/\*.*\*/"
+
+# Strings
+color ${rgb3:P.accents.primary},normal "\"[^\"]*\""
+color ${rgb3:P.accents.primary},normal "'[^']*'"
+
+# Keywords
+color ${rgb3:P.accents.rose},normal "\<(if|then|else|elif|fi|do|done|case|esac|for|while|until|function|return|break|continue)\>"
+color ${rgb3:P.accents.rose},normal "\<(if|elif|else|for|while|def|class|return|break|continue|import|from|as|with|try|except|finally|lambda|yield|async|await)\>"
+
+# Types/builtins
+color ${rgb3:P.accents.cyan},normal "\<(int|float|str|bool|list|dict|tuple|set|None|True|False|print|len|open|range|print)\>"
+color ${rgb3:P.accents.cyan},normal "\<(string|integer|number|boolean|array|object|null|true|false|null)\>"
+
+# Numbers
+color ${rgb3:P.accents.cyan},normal "[0-9]+"
+
+# Operators/punctuation
+color ${rgb3:P.accents.yellow},normal "\(\)\{\}\[\]"
+color ${rgb3:P.accents.yellow},normal "[=+\-*/%!<>&|^~,.;:]"
+
+# Filenames/paths
+color ${rgb3:P.accents.secondary},normal "\b[A-Za-z_][A-Za-z0-9_]*\.[a-zA-Z0-9_]+\b"
+
+include "/usr/share/nano/*.nanorc"
