@@ -8,6 +8,11 @@
 ![Fish](https://img.shields.io/badge/fish-3.0%2B-green.svg)
 ![Zsh](https://img.shields.io/badge/zsh-5.0%2B-green.svg)
 ![Powerlevel10k](https://img.shields.io/badge/powerlevel10k-supported-green.svg)
+![Yazi](https://img.shields.io/badge/yazi-supported-green.svg)
+![Helix](https://img.shields.io/badge/helix-supported-green.svg)
+![Lazygit](https://img.shields.io/badge/lazygit-supported-green.svg)
+![Nano](https://img.shields.io/badge/nano-supported-green.svg)
+![Zellij](https://img.shields.io/badge/zellij-supported-green.svg)
 
 Green-injected terminal, editor, and shell theme family. Like energreen but slightly greener — every neutral hue-shifted toward green, every accent a green derivative.
 
@@ -160,6 +165,46 @@ cp fastfetch/greenit-dark.jsonc ~/.config/fastfetch/config.jsonc
 cp fastfetch/greenit-light.jsonc ~/.config/fastfetch/config.jsonc
 # or load directly:
 fastfetch -c fastfetch/greenit-dark.jsonc
+```
+
+**yazi** (`greenit-dark.toml` / `greenit-light.toml`)
+```bash
+cp yazi/greenit-dark.toml ~/.config/yazi/theme.toml
+# light variant:
+cp yazi/greenit-light.toml ~/.config/yazi/theme.toml
+```
+
+**helix** (`greenit-dark.toml` / `greenit-light.toml`)
+```bash
+cp helix/greenit-dark.toml ~/.config/helix/themes/greenit-dark.toml
+# light variant:
+cp helix/greenit-light.toml ~/.config/helix/themes/greenit-light.toml
+# then in ~/.config/helix/config.toml:  theme = "greenit-dark"
+```
+
+**lazygit** (`greenit-dark.yml` / `greenit-light.yml`)
+```bash
+cp lazygit/greenit-dark.yml ~/.config/lazygit/greenit-dark.yml
+# light variant:
+cp lazygit/greenit-light.yml ~/.config/lazygit/greenit-light.yml
+# then: lazygit --use-config-file ~/.config/lazygit/config.yml,~/.config/lazygit/greenit-dark.yml
+```
+
+**nano** (`greenit-dark.nanorc` / `greenit-light.nanorc`)
+```bash
+cp nano/greenit-dark.nanorc ~/.config/nano/nanorc
+# light variant:
+cp nano/greenit-light.nanorc ~/.config/nano/nanorc
+# or add to ~/.nanorc:  include ~/.config/nano/nanorc
+```
+
+**zellij** (`greenit-dark.kdl` / `greenit-light.kdl`)
+```bash
+mkdir -p ~/.config/zellij/themes
+cp zellij/greenit-dark.kdl ~/.config/zellij/themes/
+# light variant:
+cp zellij/greenit-light.kdl ~/.config/zellij/themes/
+# then in ~/.config/zellij/config.kdl:  theme "greenit-dark"
 ```
 
 ### Syntax highlighting & tools
