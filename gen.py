@@ -146,6 +146,9 @@ BUILDS = [
     ("tmux.conf.tmpl", "tmux/greenit-light.conf", "light"),
     ("btop.theme.tmpl", "btop/greenit-dark.theme", "dark"),
     ("btop.theme.tmpl", "btop/greenit-light.theme", "light"),
+    # Emacs theme (both variants)
+    ("emacs-theme.el.tmpl", "emacs/greenit-dark-theme.el", "dark"),
+    ("emacs-theme.el.tmpl", "emacs/greenit-light-theme.el", "light"),
 ]
 
 
