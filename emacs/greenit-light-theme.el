@@ -1,8 +1,8 @@
-;;; greenit-theme.el --- Greenit green-injected Emacs theme -*- lexical-binding: t -*-
+;;; greenit-light-theme.el --- Greenit green-injected Emacs theme -*- lexical-binding: t -*-
 ;;; Recipe: energreen, slightly greener — every neutral hue-shifted toward
 ;;; green, every accent a green derivative.
 
-(deftheme greenit
+(deftheme greenit-light
   "Greenit: a green-injected theme family — {{variant}} variant.
 Every neutral is hue-shifted toward green; every accent is a green derivative."
   :family 'greenit
@@ -10,8 +10,8 @@ Every neutral is hue-shifted toward green; every accent is a green derivative."
   :background-mode '{{variant}})
 
 (custom-theme-set-faces
- 'greenit
- ;; UI
+ 'greenit-light
+  ;; UI
  '(default ((t (:foreground "#24382C" :background "#F2F7EF"))))
  '(cursor ((t (:background "#7BD88F" :foreground "#F2F7EF"))))
  '(region ((t (:background "#7BD88F" :foreground "#F2F7EF"))))
@@ -55,7 +55,7 @@ Every neutral is hue-shifted toward green; every accent is a green derivative."
  '(company-preview ((t (:background "#E6EFE2" :foreground "#24382C"))))
  '(company-tooltip ((t (:foreground "#24382C" :background "#E6EFE2" :bold t))))
  '(magit-section-heading ((t (:foreground "#7BD88F" :weight bold))))
- '(magit-item-highlight ((t (:background "#E6EFE2"))))))
+ '(magit-item-highlight ((t (:background "#E6EFE2")))))
 
-(provide-theme 'greenit)
-;;; greenit-theme.el ends here
+(provide-theme 'greenit-light)
+;;; greenit-light-theme.el ends here

@@ -1,8 +1,8 @@
-;;; greenit-theme.el --- Greenit green-injected Emacs theme -*- lexical-binding: t -*-
+;;; greenit-${variant}-theme.el --- Greenit green-injected Emacs theme -*- lexical-binding: t -*-
 ;;; Recipe: energreen, slightly greener — every neutral hue-shifted toward
 ;;; green, every accent a green derivative.
 
-(deftheme greenit
+(deftheme greenit-${variant}
   "Greenit: a green-injected theme family — {{variant}} variant.
 Every neutral is hue-shifted toward green; every accent is a green derivative."
   :family 'greenit
@@ -10,8 +10,8 @@ Every neutral is hue-shifted toward green; every accent is a green derivative."
   :background-mode '{{variant}})
 
 (custom-theme-set-faces
- 'greenit
- ;; UI
+ 'greenit-${variant}
+  ;; UI
  '(default ((t (:foreground "${P.editor.fg}" :background "${P.editor.bg}"))))
  '(cursor ((t (:background "${P.accents.primary}" :foreground "${P.editor.bg}"))))
  '(region ((t (:background "${P.accents.primary}" :foreground "${P.editor.bg}"))))
@@ -55,7 +55,7 @@ Every neutral is hue-shifted toward green; every accent is a green derivative."
  '(company-preview ((t (:background "${P.editor.surface}" :foreground "${P.editor.fg}"))))
  '(company-tooltip ((t (:foreground "${P.editor.fg}" :background "${P.editor.surface}" :bold t))))
  '(magit-section-heading ((t (:foreground "${P.accents.primary}" :weight bold))))
- '(magit-item-highlight ((t (:background "${P.editor.surface}"))))))
+ '(magit-item-highlight ((t (:background "${P.editor.surface}")))))
 
-(provide-theme 'greenit)
-;;; greenit-theme.el ends here
+(provide-theme 'greenit-${variant})
+;;; greenit-${variant}-theme.el ends here
