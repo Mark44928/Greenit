@@ -153,6 +153,15 @@ export RIPGREP_CONFIG_PATH="$HOME/repos/Greenit/ripgrep/greenit-dark.rc"
 . "$HOME/repos/Greenit/less/greenit-dark.termcap"
 ```
 
+**fastfetch** (`greenit-dark.jsonc` / `greenit-light.jsonc`)
+```bash
+cp fastfetch/greenit-dark.jsonc ~/.config/fastfetch/config.jsonc
+# light variant:
+cp fastfetch/greenit-light.jsonc ~/.config/fastfetch/config.jsonc
+# or load directly:
+fastfetch -c fastfetch/greenit-dark.jsonc
+```
+
 ### Syntax highlighting & tools
 
 **bat** (`greenit-dark.tmTheme` / `greenit-light.tmTheme`)
