@@ -58,11 +58,17 @@ def ansi256(h):
     return str(best)
 
 
+def rgb(h):
+    h = h.lstrip("#")
+    return f"{int(h[0:2], 16)},{int(h[2:4], 16)},{int(h[4:6], 16)}"
+
+
 FUNCS = {
     "rgb_r": lambda h: f"{int(h[1:3], 16) / 255:.3f}",
     "rgb_g": lambda h: f"{int(h[3:5], 16) / 255:.3f}",
     "rgb_b": lambda h: f"{int(h[5:7], 16) / 255:.3f}",
     "ansi256": ansi256,
+    "rgb": rgb,
 }
 
 

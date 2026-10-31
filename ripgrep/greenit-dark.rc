@@ -3,11 +3,11 @@
 # Then: export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # Uses 24-bit truecolor hex values (#RRGGBB).
 
---colors=match:fg:#7BD88F
+--colors=match:fg:123,216,143
 --colors=match:style:bold
---colors=path:fg:#63C9A8
+--colors=path:fg:99,201,168
 --colors=path:style:bold
---colors=line:fg:#78997F
---colors=column:fg:#7FD7C4
---colors=highlight:bg:#B8CC7A
---colors=highlight:fg:#0C1F17
+--colors=line:fg:120,153,127
+--colors=column:fg:127,215,196
+--colors=highlight:bg:184,204,122
+--colors=highlight:fg:12,31,23
