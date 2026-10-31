@@ -1,0 +1,38 @@
+# Greenit dark — fish shell theme
+# Install: cp fish/greenit-dark.theme ~/.config/fish/themes/
+# Then: fish_config  →  select "Greenit dark"
+# Or:   set -U fish_color_* values manually (see below)
+
+# name: Greenit dark
+# preferred_background: #0C1F17
+
+fish_color_normal "#C9E4CE"
+fish_color_command "#7BD88F"
+fish_color_param "#63C9A8"
+fish_color_redirection "#7FD7C4"
+fish_color_end "#7BD88F"
+fish_color_error "#C07A6E"
+fish_color_comment "#78997F"
+fish_color_match --background="#122A1F"
+fish_color_selection --background="#122A1F"
+fish_color_search_match --background="#B8CC7A"
+fish_color_history_current --bold
+fish_color_cwd "#C9E4CE"
+fish_color_cwd_root "#C07A6E"
+fish_color_valid_path --underline
+fish_color_operator "#B8CC7A"
+fish_color_escape "#7FD7C4"
+fish_color_quote "#63C9A8"
+fish_color_keyword "#A88EA0"
+fish_color_option "#7BD88F"
+fish_color_user "#7BD88F"
+fish_color_host "#63C9A8"
+fish_color_host_remote "#C07A6E"
+fish_color_cancel "#0C1F17" --background="#C9E4CE"
+fish_color_autosuggestion "#78997F"
+
+# Pager colors
+fish_pager_color_prefix "#7BD88F" --bold --underline
+fish_pager_color_completion "#C9E4CE"
+fish_pager_color_description "#63C9A8"
+fish_pager_color_progress "#7BD88F" --background="#122A1F" --bold

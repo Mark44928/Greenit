@@ -1,0 +1,46 @@
+# Greenit ${variant} — lsd colors theme
+# Install: cp lsd/greenit-${variant}.colors.yaml ~/.config/lsd/colors.yaml
+# Enable in ~/.config/lsd/config.yaml:
+#   color:
+#     theme: custom
+#
+# Hex #RRGGBB values supported by lsd.
+
+user: "${P.editor.fg}"
+group: "${P.accents.secondary}"
+permission:
+  read: "${P.accents.primary}"
+  write: "${P.accents.yellow}"
+  exec: "${P.accents.cyan}"
+  exec-sticky: "${P.accents.rose}"
+  no-access: "${P.editor.comment}"
+  octal: "${P.editor.comment}"
+  acl: "${P.accents.cyan}"
+  context: "${P.accents.secondary}"
+date:
+  hour-old: "${P.accents.primary}"
+  day-old: "${P.accents.secondary}"
+  older: "${P.editor.comment}"
+size:
+  none: "${P.editor.comment}"
+  small: "${P.accents.primary}"
+  medium: "${P.accents.yellow}"
+  large: "${P.accents.rose}"
+inode:
+  valid: "${P.accents.secondary}"
+  invalid: "${P.editor.comment}"
+links:
+  valid: "${P.accents.secondary}"
+  invalid: "${P.editor.comment}"
+tree-edge: "${P.editor.comment}"
+git-status:
+  default: "${P.editor.comment}"
+  unmodified: "${P.editor.comment}"
+  ignored: "${P.editor.comment}"
+  new-in-index: "${P.accents.primary}"
+  new-in-workdir: "${P.accents.primary}"
+  typechange: "${P.accents.yellow}"
+  deleted: "${P.accents.error}"
+  renamed: "${P.accents.primary}"
+  modified: "${P.accents.yellow}"
+  conflicted: "${P.accents.error}"

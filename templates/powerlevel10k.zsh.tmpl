@@ -1,0 +1,71 @@
+# Greenit ${variant} — Powerlevel10k prompt theme
+# Source: source "$HOME/repos/Greenit/powerlevel10k/greenit-${variant}.zsh"
+# in ~/.p10k.zsh, or add to ~/.zshrc after p10k is loaded.
+# Hex #RRGGBB values are supported by Powerlevel10k.
+
+typeset -g POWERLEVEL9K_BACKGROUND=
+typeset -g POWERLEVEL9K_FOREGROUND="${P.editor.fg}"
+
+# Context (user@hostname)
+typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND="${P.editor.fg}"
+typeset -g POWERLEVEL9K_CONTEXT_BACKGROUND="${P.editor.surface}"
+typeset -g POWERLEVEL9K_CONTEXT_ROOT_FOREGROUND="${P.accents.error}"
+typeset -g POWERLEVEL9K_CONTEXT_ROOT_BACKGROUND="${P.editor.surface}"
+
+# Directory
+typeset -g POWERLEVEL9K_DIR_FOREGROUND="${P.editor.fg}"
+typeset -g POWERLEVEL9K_DIR_BACKGROUND="${P.editor.bg}"
+typeset -g POWERLEVEL9K_DIR_HOME_FOREGROUND="${P.editor.fg}"
+typeset -g POWERLEVEL9K_DIR_HOME_BACKGROUND="${P.editor.bg}"
+typeset -g POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="${P.editor.fg}"
+typeset -g POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="${P.editor.bg}"
+typeset -g POWERLEVEL9K_DIR_ETC_FOREGROUND="${P.accents.secondary}"
+typeset -g POWERLEVEL9K_DIR_ETC_BACKGROUND="${P.editor.bg}"
+
+# VCS (git)
+typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND="${P.accents.primary}"
+typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND="${P.editor.bg}"
+typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="${P.accents.yellow}"
+typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="${P.editor.bg}"
+typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="${P.accents.secondary}"
+typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="${P.editor.bg}"
+typeset -g POWERLEVEL9K_VCS_LOADING_FOREGROUND="${P.editor.comment}"
+typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND="${P.editor.bg}"
+
+# Status (exit code)
+typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND="${P.accents.primary}"
+typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND="${P.editor.bg}"
+typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND="${P.accents.error}"
+typeset -g POWERLEVEL9K_STATUS_ERROR_BACKGROUND="${P.editor.bg}"
+
+# Prompt char
+typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND="${P.accents.primary}"
+typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND="${P.accents.error}"
+typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_BACKGROUND=
+typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_BACKGROUND=
+
+# Time
+typeset -g POWERLEVEL9K_TIME_FOREGROUND="${P.editor.comment}"
+typeset -g POWERLEVEL9K_TIME_BACKGROUND="${P.editor.bg}"
+
+# Command execution time
+typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="${P.accents.secondary}"
+typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="${P.editor.bg}"
+
+# Background jobs
+typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND="${P.accents.rose}"
+typeset -g POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND="${P.editor.bg}"
+
+# Root indicator
+typeset -g POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="${P.accents.error}"
+typeset -g POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="${P.editor.bg}"
+
+# Dir writable
+typeset -g POWERLEVEL9K_DIR_WRITABLE_JOINT_FOREGROUND="${P.accents.error}"
+typeset -g POWERLEVEL9K_DIR_WRITABLE_JOINT_BACKGROUND="${P.editor.bg}"
+
+# Separators
+typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B0'
+typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B2'
+typeset -g POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\uE0B1'
+typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\uE0B3'

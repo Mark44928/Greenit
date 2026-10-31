@@ -1,0 +1,13 @@
+# Greenit light — ripgrep color configuration
+# Install: cp ripgrep/greenit-light.rc ~/.ripgreprc
+# Then: export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+# Uses 24-bit truecolor hex values (#RRGGBB).
+
+--colors=match:fg:#7BD88F
+--colors=match:style:bold
+--colors=path:fg:#63C9A8
+--colors=path:style:bold
+--colors=line:fg:#56695C
+--colors=column:fg:#7FD7C4
+--colors=highlight:bg:#B8CC7A
+--colors=highlight:fg:#F2F7EF

@@ -1,0 +1,38 @@
+# Greenit ${variant} — fish shell theme
+# Install: cp fish/greenit-${variant}.theme ~/.config/fish/themes/
+# Then: fish_config  →  select "Greenit ${variant}"
+# Or:   set -U fish_color_* values manually (see below)
+
+# name: Greenit ${variant}
+# preferred_background: ${P.editor.bg}
+
+fish_color_normal "${P.editor.fg}"
+fish_color_command "${P.accents.primary}"
+fish_color_param "${P.accents.secondary}"
+fish_color_redirection "${P.accents.cyan}"
+fish_color_end "${P.accents.primary}"
+fish_color_error "${P.accents.error}"
+fish_color_comment "${P.editor.comment}"
+fish_color_match --background="${P.editor.surface}"
+fish_color_selection --background="${P.editor.surface}"
+fish_color_search_match --background="${P.accents.yellow}"
+fish_color_history_current --bold
+fish_color_cwd "${P.editor.fg}"
+fish_color_cwd_root "${P.accents.error}"
+fish_color_valid_path --underline
+fish_color_operator "${P.accents.yellow}"
+fish_color_escape "${P.accents.cyan}"
+fish_color_quote "${P.accents.secondary}"
+fish_color_keyword "${P.accents.rose}"
+fish_color_option "${P.accents.primary}"
+fish_color_user "${P.accents.primary}"
+fish_color_host "${P.accents.secondary}"
+fish_color_host_remote "${P.accents.error}"
+fish_color_cancel "${P.editor.bg}" --background="${P.editor.fg}"
+fish_color_autosuggestion "${P.editor.comment}"
+
+# Pager colors
+fish_pager_color_prefix "${P.accents.primary}" --bold --underline
+fish_pager_color_completion "${P.editor.fg}"
+fish_pager_color_description "${P.accents.secondary}"
+fish_pager_color_progress "${P.accents.primary}" --background="${P.editor.surface}" --bold

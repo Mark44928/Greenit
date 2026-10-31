@@ -1,0 +1,46 @@
+# Greenit light — lsd colors theme
+# Install: cp lsd/greenit-light.colors.yaml ~/.config/lsd/colors.yaml
+# Enable in ~/.config/lsd/config.yaml:
+#   color:
+#     theme: custom
+#
+# Hex #RRGGBB values supported by lsd.
+
+user: "#24382C"
+group: "#63C9A8"
+permission:
+  read: "#7BD88F"
+  write: "#B8CC7A"
+  exec: "#7FD7C4"
+  exec-sticky: "#A88EA0"
+  no-access: "#56695C"
+  octal: "#56695C"
+  acl: "#7FD7C4"
+  context: "#63C9A8"
+date:
+  hour-old: "#7BD88F"
+  day-old: "#63C9A8"
+  older: "#56695C"
+size:
+  none: "#56695C"
+  small: "#7BD88F"
+  medium: "#B8CC7A"
+  large: "#A88EA0"
+inode:
+  valid: "#63C9A8"
+  invalid: "#56695C"
+links:
+  valid: "#63C9A8"
+  invalid: "#56695C"
+tree-edge: "#56695C"
+git-status:
+  default: "#56695C"
+  unmodified: "#56695C"
+  ignored: "#56695C"
+  new-in-index: "#7BD88F"
+  new-in-workdir: "#7BD88F"
+  typechange: "#B8CC7A"
+  deleted: "#C07A6E"
+  renamed: "#7BD88F"
+  modified: "#B8CC7A"
+  conflicted: "#C07A6E"

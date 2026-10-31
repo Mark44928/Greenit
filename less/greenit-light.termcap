@@ -1,0 +1,15 @@
+# Greenit light — less termcap colors
+# Source: . "$HOME/repos/Greenit/less/greenit-light.termcap"
+# or add to ~/.bashrc / ~/.zshrc / ~/.config/fish/config.fish
+# Uses 256-color ANSI escape sequences mapped to nearest palette color.
+
+export LESS_TERMCAP_mb=$'\e[38;5;137m'   # begin blinking
+export LESS_TERMCAP_md=$'\e[38;5;114m'  # begin bold
+export LESS_TERMCAP_me=$'\e[0m'                                  # end mode
+export LESS_TERMCAP_se=$'\e[0m'                                  # end standout-mode
+export LESS_TERMCAP_so=$'\e[7;38;5;150m' # begin standout-mode
+export LESS_TERMCAP_ue=$'\e[0m'                                  # end underline
+export LESS_TERMCAP_us=$'\e[4;38;5;116m'   # begin underline
+export LESS_TERMCAP_mr=$'\e[7m'                                  # reverse video
+export LESS_TERMCAP_mh=$'\e[2m'                                  # dim
+export GROFF_NO_SGR=1

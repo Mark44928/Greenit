@@ -1,0 +1,31 @@
+# Greenit ${variant} — git-delta color theme
+# Include: [include] path = "$HOME/repos/Greenit/delta/greenit-${variant}.config"
+# in ~/.gitconfig, then activate:
+#   [delta] features = greenit-${variant}
+#
+# Styles use git config color syntax: [attributes] foreground [background]
+# or just "#RRGGBB" for foreground only. See git-config(1) color section.
+
+[delta]
+    dark = {{#if variant == "dark"}}true{{/if}}{{#if variant == "light"}}false{{/if}}
+    light = {{#if variant == "light"}}true{{/if}}{{#if variant == "dark"}}false{{/if}}
+    navigate = true
+    line-numbers = true
+    syntax-theme = Greenit
+
+[delta]
+    commit-style = "${P.accents.rose} bold"
+    file-style = "${P.editor.comment} bold"
+    file-decoration-style = "${P.editor.comment}" overline
+    file-added-label = "[+]"
+    file-modified-label = "[~]"
+    file-removed-label = "[-]"
+    file-renamed-label = "[→]"
+    hunk-header-style = "${P.accents.secondary} bold italic"
+    minus-style = "${P.accents.error}"
+    minus-emph-style = "${P.accents.error}" bold
+    plus-style = "${P.accents.primary}"
+    plus-emph-style = "${P.accents.primary}" bold
+    zero-style = "${P.editor.comment}"
+    whitespace-error-style = "${P.accents.error}" reverse
+    syntax-theme = Greenit

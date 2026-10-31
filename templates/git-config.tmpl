@@ -1,0 +1,59 @@
+# Greenit ${variant} — git color configuration
+# Include: [include] path = "$HOME/repos/Greenit/git/greenit-${variant}.config"
+# in ~/.gitconfig, or append these sections directly.
+# Hex #RRGGBB values supported by git ≥ 2.26.
+
+[color]
+    ui = always
+    diff = always
+    status = always
+    branch = always
+    grep = always
+    decorate = always
+    interactive = always
+    pager = true
+
+[color "diff"]
+    meta = "${P.accents.secondary} bold"
+    frag = "${P.accents.rose} bold"
+    func = "${P.accents.cyan}"
+    context = "${P.editor.comment}"
+    old = "${P.accents.error} bold"
+    new = "${P.accents.primary} bold"
+    commit = "${P.accents.yellow}"
+    whitespace = "${P.accents.error} reverse"
+
+[color "status"]
+    header = "${P.editor.fg} bold"
+    added = "${P.accents.primary}"
+    changed = "${P.accents.yellow}"
+    untracked = "${P.accents.rose}"
+    branch = "${P.accents.secondary} bold"
+    nobranch = "${P.accents.error} reverse"
+
+[color "branch"]
+    current = "${P.accents.primary} bold"
+    local = "${P.editor.fg}"
+    remote = "${P.accents.secondary}"
+    upstream = "${P.accents.rose}"
+    plain = "${P.editor.fg}"
+
+[color "decorate"]
+    branch = "${P.accents.cyan}"
+    remoteBranch = "${P.accents.secondary}"
+    tag = "${P.accents.rose}"
+    stash = "${P.accents.yellow}"
+    HEAD = "${P.editor.comment}"
+
+[color "grep"]
+    filename = "${P.accents.rose}"
+    linenumber = "${P.accents.secondary}"
+    match = "${P.accents.primary} bold"
+    matchContext = "${P.editor.fg}"
+    separator = "${P.editor.comment}"
+
+[color "interactive"]
+    prompt = "${P.accents.primary} bold"
+    header = "${P.editor.fg}"
+    help = "${P.editor.comment}"
+    error = "${P.accents.error}"
