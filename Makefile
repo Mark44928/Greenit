@@ -10,14 +10,17 @@ export TMPDIR := /data/data/com.termux/files/usr/tmp
 
 .PHONY: gen check contrast test
 
+# Invoke through the interpreter, not ./script: the files carry the Termux
+# shebang (their path only exists on Android), which breaks `make` on Linux
+# CI runners. Same commands, both platforms.
 gen:
-	./gen.py
+	python3 ./gen.py
 
 contrast:
 	python3 tests/contrast.py
 
 test:
-	./test-colorscheme.sh
+	bash ./test-colorscheme.sh
 
 check: gen contrast
 	git diff --exit-code
