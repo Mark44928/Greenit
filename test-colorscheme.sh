@@ -18,8 +18,17 @@ check() {
   local expected_bg="$4"
 
   echo "=== Testing $variant ==="
-  output=$(vim -u NONE -N -c "set t_Co=256 rtp+=$REPO" \
-    -c "colorscheme $variant" -c "hi Normal" -c "echo g:colors_name" -c "qa!" 2>&1 | strip_ansi)
+  # -es (silent ex mode) runs without a terminal; :redir captures the
+  # command output that would otherwise go to the message area.
+  local capture
+  capture=$(mktemp "${TMPDIR:-.}/greenit-check.XXXXXX")
+  vim -u NONE -N -es \
+    -c "redir! > $capture" \
+    -c "set t_Co=256 rtp+=$REPO" \
+    -c "colorscheme $variant" -c "hi Normal" -c "echo g:colors_name" \
+    -c "redir END" -c "qa!" </dev/null >/dev/null 2>&1
+  output=$(strip_ansi <"$capture" 2>/dev/null || true)
+  rm -f "$capture"
 
   if echo "$output" | grep -q "guifg=$expected_fg" && \
      echo "$output" | grep -q "guibg=$expected_bg" && \
