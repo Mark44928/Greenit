@@ -7,6 +7,19 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PASS=0
 FAIL=0
 
+# Prefer the caller's TMPDIR, then the Termux default, then any writable
+# temp dir — the Makefile used to force the Termux path, which does not
+# exist on Linux CI runners.
+if [ -n "${TMPDIR:-}" ] && [ -d "$TMPDIR" ] && [ -w "$TMPDIR" ]; then
+    :
+elif [ -d /data/data/com.termux/files/usr/tmp ] && [ -w /data/data/com.termux/files/usr/tmp ]; then
+    TMPDIR=/data/data/com.termux/files/usr/tmp
+else
+    TMPDIR=$(mktemp -d 2>/dev/null || echo ".")
+fi
+export TMPDIR
+mkdir -p "$TMPDIR"
+
 strip_ansi() {
   sed 's/\x1b\[[0-9;]*[a-zA-Z]//g' | tr -d '\r'
 }

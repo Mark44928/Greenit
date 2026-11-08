@@ -6,7 +6,8 @@
 # make contrast   regenerate the WCAG contrast table in palette.md
 # make test       run the Vim colorscheme load test (skips if vim is absent)
 
-export TMPDIR := /data/data/com.termux/files/usr/tmp
+# TMPDIR is resolved by each script (Termux default first, then mktemp) so
+# the same commands work on a phone and on CI runners.
 
 .PHONY: gen check contrast test
 
