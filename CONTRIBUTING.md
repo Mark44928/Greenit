@@ -15,7 +15,7 @@ Greenit is a **generated theme family**: every artifact is rendered from a singl
 
 1. Edit `palette.json` (dark and/or light variant).
 2. Run `make gen` to regenerate all 40 artifacts.
-3. Run `make check` to verify no drift (`git diff --exit-code` must be clean).
+3. Run `make gen` and `make contrast`, then `make check` — the contrast table regenerates from `palette.json` and `git diff --exit-code` must be clean (the Vim load test runs too).
 4. Update `palette.md` and `README.md` tables if you changed values.
 5. Test the vim colorscheme:
    ```sh
@@ -28,8 +28,13 @@ Greenit is a **generated theme family**: every artifact is rendered from a singl
 ## Adding a new app integration
 
 1. Create `templates/<app>.tmpl` following an existing template's structure.
+   Available substitutions: `${variant}`, `${P.<section>.<key>}` (with
+   `${P.ansi[0]}` for palette array entries) and the transform functions
+   `${rgb:P.fg}`, `${rgb3:P.fg}`, `${ansi256:P.fg}`, `${rgb_r|g|b:P.fg}` and
+   `${nohash:P.fg}` (bare hex, for INI-style configs). Conditionals:
+   `{{#if is_light}} … {{#else}} … {{/if}}` and `{{#variant dark}} … {{/variant}}`.
 2. Add entries to `BUILDS` in `gen.py` (one per variant, dark + light).
-3. Run `make gen` and `make check`.
+3. Run `make gen` and `make check` (contrast table + drift + colorscheme load test). The contrast table regenerates from `palette.json` — never hand-edit it.
 4. Add install instructions to `README.md` under "Quick Install".
 5. Commit: template, generated variants, gen.py changes.
 

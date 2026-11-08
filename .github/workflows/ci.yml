@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Regenerate artifacts and detect drift
+        run: |
+          make gen
+          make contrast
+          git diff --exit-code
+      - name: Colorscheme load test
+        run: make test

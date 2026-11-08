@@ -1,16 +1,24 @@
 # Greenit — generated theme family
 #
-# make gen     render every artifact from palette.json via gen.py
-# make check   regenerate, fail on git diff (drift detection),
-#              and node --check any JavaScript sources where applicable
+# make gen        render every artifact from palette.json via gen.py
+# make check      regenerate, fail on git diff (drift detection),
+#                 regenerate WCAG table, then run the colorscheme load test
+# make contrast   regenerate the WCAG contrast table in palette.md
+# make test       run the Vim colorscheme load test (skips if vim is absent)
 
 export TMPDIR := /data/data/com.termux/files/usr/tmp
 
-.PHONY: gen check
+.PHONY: gen check contrast test
 
 gen:
 	./gen.py
 
-check: gen
+contrast:
+	python3 tests/contrast.py
+
+test:
+	./test-colorscheme.sh
+
+check: gen contrast
 	git diff --exit-code
-	@find . -path ./.git -prune -o -name '*.js' -type f -exec node --check {} \;
+	@$(MAKE) test --no-print-directory

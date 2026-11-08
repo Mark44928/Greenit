@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/env bash
 # Verify Greenit colorscheme loads correctly in Vim.
 # Exit 0 on pass, non-zero on fail.
 set -euo pipefail
 
-REPO="$HOME/repos/Greenit"
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PASS=0
 FAIL=0
 
@@ -32,6 +32,11 @@ check() {
     FAIL=$((FAIL + 1))
   fi
 }
+
+if ! command -v vim >/dev/null 2>&1; then
+  echo "vim not installed — skipping colorscheme load test"
+  exit 0
+fi
 
 check "greenit"   "greenit"   "#C9E4CE" "#0C1F17"
 check "greenit-light" "greenit-light" "#24382C" "#F2F7EF"

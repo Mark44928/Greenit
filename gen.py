@@ -75,6 +75,7 @@ FUNCS = {
     "ansi256": ansi256,
     "rgb": rgb,
     "rgb3": rgb3,
+    "nohash": lambda h: h.lstrip("#"),  # INI-style configs want bare hex
 }
 
 
@@ -186,7 +187,7 @@ BUILDS = [
     ("windows-terminal.json.tmpl", "extras/windows-terminal.json", "dark"),
     ("greenit.itermcolors.tmpl", "extras/greenit.itermcolors", "dark"),
     ("greenit.vim.tmpl", "colors/greenit.vim", None),
-    ("greenit-light.vim.tmpl", "colors/greenit-light.vim", "dark"),
+    ("greenit-light.vim.tmpl", "colors/greenit-light.vim", "light"),
     # New app integrations (both variants)
     ("bat.tmTheme.tmpl", "bat/greenit-dark.tmTheme", "dark"),
     ("bat.tmTheme.tmpl", "bat/greenit-light.tmTheme", "light"),
@@ -234,6 +235,11 @@ BUILDS = [
     ("nano-theme.tmpl", "nano/greenit-light.nanorc", "light"),
     ("zellij-theme.tmpl", "zellij/greenit-dark.kdl", "dark"),
     ("zellij-theme.tmpl", "zellij/greenit-light.kdl", "light"),
+    # v1.1.0 additions
+    ("vivid.conf.tmpl", "vivid/greenit-dark.yml", "dark"),
+    ("vivid.conf.tmpl", "vivid/greenit-light.yml", "light"),
+    ("foot.ini.tmpl", "foot/greenit-dark.ini", "dark"),
+    ("foot.ini.tmpl", "foot/greenit-light.ini", "light"),
 ]
 
 

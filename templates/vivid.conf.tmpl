@@ -1,0 +1,30 @@
+# Greenit ${variant} — vivid theme
+# vivid (https://github.com/sharkdp/vivid) generates LS_COLORS from a theme file.
+#
+#   vivid generate greenit-${variant}.yml                       # print LS_COLORS
+#   eval "$(vivid generate greenit-${variant}.yml)"             # or apply it
+#   vivid apply greenit-${variant}.yml -V                       # preview in the repo
+colors:
+  background: "${P.terminal.background}"
+  foreground: "${P.terminal.foreground}"
+  cursor: "${P.terminal.cursor}"
+  selection_background: "${P.terminal.selection_background}"
+  selection_foreground: "${P.terminal.selection_foreground}"
+  normal:
+    black: "${P.ansi[0]}"
+    red: "${P.ansi[1]}"
+    green: "${P.ansi[2]}"
+    yellow: "${P.ansi[3]}"
+    blue: "${P.ansi[4]}"
+    magenta: "${P.ansi[5]}"
+    cyan: "${P.ansi[6]}"
+    white: "${P.ansi[7]}"
+  bright:
+    black: "${P.ansi[8]}"
+    red: "${P.ansi[9]}"
+    green: "${P.ansi[10]}"
+    yellow: "${P.ansi[11]}"
+    blue: "${P.ansi[12]}"
+    magenta: "${P.ansi[13]}"
+    cyan: "${P.ansi[14]}"
+    white: "${P.ansi[15]}"

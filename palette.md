@@ -4,7 +4,7 @@ Greenit is a green-injected theme family — like energreen but slightly greener
 Every neutral is hue-shifted toward green (grays → sage/moss), and every accent
 is a green derivative. Two variants: **Dark** and **Light**.
 
-![Greenit palette preview — Dark and Light variants](assets/palette-preview.png)
+![Greenit palette preview — Dark and Light variants](assets/palette-preview.svg)
 
 ## WCAG Contrast (measured)
 
@@ -13,23 +13,25 @@ Ratios are foreground/background. WCAG 2.0 AA requires ≥ 4.5:1 for normal text
 | Variant | Pair            | Ratio | Pass AA |
 |---------|-----------------|-------|---------|
 | Dark    | fg / bg         | 12.64 | yes     |
-| Dark    | primary / bg    | 9.85  | yes     |
-| Dark    | error / bg      | 5.11  | yes     |
-| Dark    | rose / bg       | 5.75  | yes     |
+| Dark    | primary / bg    |  9.85 | yes     |
+| Dark    | secondary / bg  |  8.54 | yes     |
+| Dark    | error / bg      |  5.11 | yes     |
+| Dark    | rose / bg       |  5.75 | yes     |
 | Dark    | cyan / bg       | 10.15 | yes     |
-| Dark    | secondary / bg  | 8.54  | yes     |
-| Dark    | yellow / bg     | 9.77  | yes     |
-| Dark    | comment / bg    | 3.65  | no*     |
-| Dark    | color0 / bg     | 1.25  | no*     |
-| Dark    | color8 / bg     | 3.65  | no*     |
+| Dark    | yellow / bg     |  9.77 | yes     |
+| Dark    | comment / bg    |  5.44 | yes     |
+| Dark    | color0 / bg     |  1.25 | no*     |
+| Dark    | color8 / bg     |  5.44 | yes     |
 | Light   | fg / bg         | 11.52 | yes     |
-| Light   | primary / bg    | 1.60  | no*     |
-| Light   | error / bg      | 3.09  | no*     |
-| Light   | rose / bg       | 2.74  | no*     |
-| Light   | cyan / bg       | 1.56  | no*     |
-| Light   | comment / bg    | 3.17  | no*     |
-| Light   | color8 / bg     | 3.17  | no*     |
-| Light   | fg / surface    | 10.62 | yes     |
+| Light   | primary / bg    |  1.60 | no*     |
+| Light   | secondary / bg  |  1.85 | no*     |
+| Light   | error / bg      |  3.09 | no*     |
+| Light   | rose / bg       |  2.74 | no*     |
+| Light   | cyan / bg       |  1.56 | no*     |
+| Light   | yellow / bg     |  1.62 | no*     |
+| Light   | comment / bg    |  5.41 | yes     |
+| Light   | color0 / bg     |  1.09 | no*     |
+| Light   | color8 / bg     |  5.41 | yes     |
 
 \* The **fg/bg** pair passes AA (12.64 dark, 11.52 light). Comment and ANSI
 "black" (color0) levels are intentionally below 4.5:1 — they are decorative

@@ -1,0 +1,30 @@
+# Greenit light — vivid theme
+# vivid (https://github.com/sharkdp/vivid) generates LS_COLORS from a theme file.
+#
+#   vivid generate greenit-light.yml                       # print LS_COLORS
+#   eval "$(vivid generate greenit-light.yml)"             # or apply it
+#   vivid apply greenit-light.yml -V                       # preview in the repo
+colors:
+  background: "#F2F7EF"
+  foreground: "#24382C"
+  cursor: "#24382C"
+  selection_background: "#E6EFE2"
+  selection_foreground: "#24382C"
+  normal:
+    black: "#E6EFE2"
+    red: "#C07A6E"
+    green: "#7BD88F"
+    yellow: "#B8CC7A"
+    blue: "#63C9A8"
+    magenta: "#A88EA0"
+    cyan: "#7FD7C4"
+    white: "#C9E4CE"
+  bright:
+    black: "#56695C"
+    red: "#E49A8E"
+    green: "#9BEDAF"
+    yellow: "#D4E49A"
+    blue: "#8FE4C4"
+    magenta: "#D4B4C0"
+    cyan: "#A7EBDC"
+    white: "#FFFFFF"
