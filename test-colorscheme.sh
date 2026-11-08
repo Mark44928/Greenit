@@ -35,11 +35,13 @@ check() {
   # command output that would otherwise go to the message area.
   local capture
   capture=$(mktemp "${TMPDIR:-.}/greenit-check.XXXXXX")
+  # vim's own exit code is not what we assert on (a colorscheme error makes
+  # it exit non-zero) — the captured output is. Never let it trip set -e.
   vim -u NONE -N -es \
     -c "redir! > $capture" \
     -c "set t_Co=256 rtp+=$REPO" \
     -c "colorscheme $variant" -c "hi Normal" -c "echo g:colors_name" \
-    -c "redir END" -c "qa!" </dev/null >/dev/null 2>&1
+    -c "redir END" -c "qa!" </dev/null >/dev/null 2>&1 || true
   output=$(strip_ansi <"$capture" 2>/dev/null || true)
   rm -f "$capture"
 
