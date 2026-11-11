@@ -116,6 +116,7 @@ def truthy(cond, ctx):
     return not val if neg else val
 
 
+CLOSE_LEN = {"/variant": len("{{/variant}}"), "/if": len("{{/if}}")}
 def find_end(text, start, close_tag):
     open_name = close_tag[1:]
     depth = 0
@@ -148,8 +149,7 @@ def render(text, ctx):
         out.append(text[i:m.start()])
         tag, args = m.group(1), m.group(2).strip()
         if tag in ("/variant", "/if"):
-            i = m.end()
-            continue
+            raise RuntimeError(f"unmatched closing tag {{{{{tag}}}}}")
         if tag == "#else":
             raise RuntimeError("stray {{#else}} outside {{#if}}")
         if tag == "#variant":
@@ -163,7 +163,7 @@ def render(text, ctx):
             ic["variant"] = v
             ic["is_light"] = v == "light"
             out.append(render(text[m.end():end], ic))
-            i = end
+            i = end + CLOSE_LEN["/variant"]
         elif tag == "#if":
             end, else_pos = find_end(text, m.end(), "/if")
             inner = text[m.end(): else_pos if else_pos != -1 else end]
@@ -171,7 +171,7 @@ def render(text, ctx):
                 out.append(render(inner, ctx))
             elif else_pos != -1:
                 out.append(render(text[else_pos:end], ctx))
-            i = end
+            i = end + CLOSE_LEN["/if"]
     text = "".join(out)
     return INTERP_RE.sub(lambda m: str(resolve(ctx, m.group(1))), text)
 
