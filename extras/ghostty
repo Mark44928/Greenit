@@ -4,8 +4,8 @@
 
 background = #0C1F17
 foreground = #C9E4CE
-cursor = #C9E4CE
-cursor_text = #0C1F17
+cursor-color = #C9E4CE
+cursor-text = #0C1F17
 
 palette = 0=#1A331C
 palette = 1=#A88EA0

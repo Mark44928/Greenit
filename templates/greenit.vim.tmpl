@@ -14,6 +14,13 @@ endif
 let s:light = !empty($GREENIT_LIGHT) && $GREENIT_LIGHT ==# '1'
 let s:light = s:light || (exists('g:greenit_light') && g:greenit_light)
 let s:name = s:light ? 'greenit-light' : 'greenit'
+" Clear the variant flags now that they are read: otherwise loading
+" :colorscheme greenit (dark) after greenit-light in the same session
+" would keep the light variant active.
+let $GREENIT_LIGHT = ''
+if exists('g:greenit_light')
+  unlet g:greenit_light
+endif
 " set background BEFORE clearing/defining highlights: changing bg resets
 " colorscheme state, so it must come first.
 execute "set background=" . (s:light ? 'light' : 'dark')
@@ -30,8 +37,8 @@ else
 endif
 
 " ---- palette (per variant) ----
-" dark: bg #0C1F17 surface #122A1F fg #C9E4CE comment #5F7A66
-" light: bg #F2F7EF surface #E6EFE2 fg #24382C comment #7A9078
+" dark: bg #0C1F17 surface #122A1F fg #C9E4CE comment #78997F
+" light: bg #F2F7EF surface #E6EFE2 fg #24382C comment #56695C
 " accents (both): primary #7BD88F secondary #63C9A8 yellow #B8CC7A
 "   rose #A88EA0 cyan #7FD7C4 error #C07A6E{{#variant light}}
 

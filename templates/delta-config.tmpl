@@ -11,7 +11,7 @@
     light = {{#if variant == "light"}}true{{/if}}{{#if variant == "dark"}}false{{/if}}
     navigate = true
     line-numbers = true
-    syntax-theme = Greenit
+    syntax-theme = Greenit ${variant}
 
 [delta]
     commit-style = "${P.accents.rose} bold"
@@ -28,4 +28,4 @@
     plus-emph-style = "${P.accents.primary}" bold
     zero-style = "${P.editor.comment}"
     whitespace-error-style = "${P.accents.error}" reverse
-    syntax-theme = Greenit
+    syntax-theme = Greenit ${variant}
