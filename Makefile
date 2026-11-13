@@ -5,11 +5,15 @@
 #                 regenerate WCAG table, then run the colorscheme load test
 # make contrast   regenerate the WCAG contrast table in palette.md
 # make test       run the Vim colorscheme load test (skips if vim is absent)
+# make preview    regenerate assets/palette-preview.svg from palette.json
 
 # TMPDIR is resolved by each script (Termux default first, then mktemp) so
 # the same commands work on a phone and on CI runners.
 
-.PHONY: gen check contrast test
+.PHONY: gen check contrast test preview
+
+preview:
+	python3 scripts/svgswatch.py
 
 # Invoke through the interpreter, not ./script: the files carry the Termux
 # shebang (their path only exists on Android), which breaks `make` on Linux
