@@ -1,6 +1,6 @@
 # Greenit light — exa colors
 # Export: export EXA_COLORS="$(cat exa/greenit-light.colors)"
-# Or source directly: . "$HOME/repos/Greenit/exa/greenit-light.colors"
+# Or source directly: . "$HOME/Greenit/exa/greenit-light.colors"
 # Uses 256-color ANSI codes (38;5;nnn) mapped to nearest palette color.
 # File classes (LS_COLORS) plus exa UI metadata (EXA_COLORS).
 

@@ -104,7 +104,7 @@ cp termux/greenit-light.properties ~/.termux/colors.properties && termux-reload-
 **Emacs** (`greenit-dark-theme.el` / `greenit-light-theme.el`)
 ```elisp
 ;; ~/.emacs.d/init.el or ~/.emacs
-(add-to-list 'custom-theme-load-path "$HOME/repos/Greenit/emacs")
+(add-to-list 'custom-theme-load-path "$HOME/Greenit/emacs")
 (load-theme 'greenit-dark t)   ;; or 'greenit-light
 ```
 
@@ -118,22 +118,22 @@ fish_config
 
 **Powerlevel10k** (`greenit-dark.zsh` / `greenit-light.zsh`)
 ```zsh
-source "$HOME/repos/Greenit/powerlevel10k/greenit-dark.zsh"
-# or: source "$HOME/repos/Greenit/powerlevel10k/greenit-light.zsh"
+source "$HOME/Greenit/powerlevel10k/greenit-dark.zsh"
+# or: source "$HOME/Greenit/powerlevel10k/greenit-light.zsh"
 ```
 
 **git** (`greenit-dark.config` / `greenit-light.config`)
 ```ini
 # ~/.gitconfig
 [include]
-    path = "$HOME/repos/Greenit/git/greenit-dark.config"
+    path = "$HOME/Greenit/git/greenit-dark.config"
 ```
 
 **git-delta** (`greenit-dark.config` / `greenit-light.config`)
 ```ini
 # ~/.gitconfig
 [include]
-    path = "$HOME/repos/Greenit/delta/greenit-dark.config"
+    path = "$HOME/Greenit/delta/greenit-dark.config"
 [delta]
     features = greenit-dark   # or greenit-light
 ```
@@ -155,12 +155,12 @@ export EXA_COLORS="$(cat exa/greenit-dark.colors)"
 
 **ripgrep** (`greenit-dark.rc` / `greenit-light.rc`)
 ```bash
-export RIPGREP_CONFIG_PATH="$HOME/repos/Greenit/ripgrep/greenit-dark.rc"
+export RIPGREP_CONFIG_PATH="$HOME/Greenit/ripgrep/greenit-dark.rc"
 ```
 
 **less** (`greenit-dark.termcap` / `greenit-light.termcap`)
 ```bash
-. "$HOME/repos/Greenit/less/greenit-dark.termcap"
+. "$HOME/Greenit/less/greenit-dark.termcap"
 ```
 
 **fastfetch** (`greenit-dark.jsonc` / `greenit-light.jsonc`)
@@ -242,7 +242,7 @@ bat --theme Greenit-dark file.rs
 
 **fzf** (`greenit-dark.sh` / `greenit-light.sh`)
 ```bash
-. "$HOME/repos/Greenit/fzf/greenit-dark.sh"
+. "$HOME/Greenit/fzf/greenit-dark.sh"
 # or add to ~/.zshrc / ~/.bashrc
 ```
 
@@ -260,8 +260,8 @@ cp starship/greenit-dark.toml ~/.config/starship.toml
 
 **tmux** (`greenit-dark.conf` / `greenit-light.conf`)
 ```bash
-tmux source-file "$HOME/repos/Greenit/tmux/greenit-dark.conf"
-# light: tmux source-file "$HOME/repos/Greenit/tmux/greenit-light.conf"
+tmux source-file "$HOME/Greenit/tmux/greenit-dark.conf"
+# light: tmux source-file "$HOME/Greenit/tmux/greenit-light.conf"
 ```
 
 **btop** (`greenit-dark.theme` / `greenit-light.theme`)
@@ -274,11 +274,11 @@ cp btop/greenit-dark.theme ~/.config/btop/themes/
 
 ```bash
 # Dark variant — Normal must show guifg/#C9E4CE guibg/#0C1F17, name prints 'greenit'
-vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/repos/Greenit" \
+vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/Greenit" \
     -c "colorscheme greenit" -c "hi Normal" -c "echo g:colors_name" -c "qa!"
 
 # Light variant — Normal must show guifg/#24382C guibg/#F2F7EF, name prints 'greenit-light'
-vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/repos/Greenit" \
+vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/Greenit" \
     -c "colorscheme greenit-light" -c "hi Normal" -c "echo g:colors_name" -c "qa!"
 ```
 

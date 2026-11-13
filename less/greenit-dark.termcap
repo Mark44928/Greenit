@@ -1,5 +1,5 @@
 # Greenit dark — less termcap colors
-# Source: . "$HOME/repos/Greenit/less/greenit-dark.termcap"
+# Source: . "$HOME/Greenit/less/greenit-dark.termcap"
 # or add to ~/.bashrc / ~/.zshrc / ~/.config/fish/config.fish
 # Uses 256-color ANSI escape sequences mapped to nearest palette color.
 

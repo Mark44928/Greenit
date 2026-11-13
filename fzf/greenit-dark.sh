@@ -1,5 +1,5 @@
 # Greenit dark — fzf color theme
-# Source with: . "$HOME/repos/Greenit/fzf/greenit-dark.sh"
+# Source with: . "$HOME/Greenit/fzf/greenit-dark.sh"
 # 24-bit hex colors; requires a true-color terminal (COLORTERM=truecolor).
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color=bg:#0C1F17,fg:#C9E4CE,hl:#78997F \

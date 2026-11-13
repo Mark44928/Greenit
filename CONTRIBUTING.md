@@ -19,9 +19,9 @@ Greenit is a **generated theme family**: every artifact is rendered from a singl
 4. Update `palette.md` and `README.md` tables if you changed values.
 5. Test the vim colorscheme:
    ```sh
-   vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/repos/Greenit" \
+   vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/Greenit" \
        -c "colorscheme greenit" -c "hi Normal" -c "echo g:colors_name" -c "qa!"
-   vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/repos/Greenit" \
+   vim -u NONE -N -c "set t_Co=256 rtp+=$HOME/Greenit" \
        -c "colorscheme greenit-light" -c "hi Normal" -c "echo g:colors_name" -c "qa!"
    ```
 

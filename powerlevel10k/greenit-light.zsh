@@ -1,5 +1,5 @@
 # Greenit light — Powerlevel10k prompt theme
-# Source: source "$HOME/repos/Greenit/powerlevel10k/greenit-light.zsh"
+# Source: source "$HOME/Greenit/powerlevel10k/greenit-light.zsh"
 # in ~/.p10k.zsh, or add to ~/.zshrc after p10k is loaded.
 # Hex #RRGGBB values are supported by Powerlevel10k.
 
