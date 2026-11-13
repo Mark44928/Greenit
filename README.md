@@ -27,6 +27,8 @@ Two variants: **Dark** (`greenit`) and **Light** (`greenit-light`).
 
 ![Greenit palette preview — Dark and Light variants](assets/palette-preview.svg)
 
+![Greenit dark/light swatch — generated from palette.json](docs/palette.png)
+
 WCAG AA: dark fg/bg = 12.64:1, light fg/bg = 11.52:1.
 
 ## How it works
