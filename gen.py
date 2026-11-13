@@ -29,9 +29,9 @@ def _ansi256_colors():
     colors = []
     # 0-15: standard ANSI
     for i in range(16):
-        r = (i & 4) and 255 or 0
+        r = (i & 1) and 255 or 0
         g = (i & 2) and 255 or 0
-        b = (i & 1) and 255 or 0
+        b = (i & 4) and 255 or 0
         colors.append((r, g, b))
     # 16-231: 6x6x6 color cube
     for r in range(6):
