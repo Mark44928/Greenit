@@ -6,7 +6,6 @@ python3 scripts/swatch.py
 import json
 import os
 
-import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
