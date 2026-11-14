@@ -14,7 +14,7 @@ Greenit is a **generated theme family**: every artifact is rendered from a singl
 ## Changing the palette
 
 1. Edit `palette.json` (dark and/or light variant).
-2. Run `make gen` to regenerate all 56 artifacts.
+2. Run `make gen` to regenerate all 58 artifacts.
 3. Run `make gen` and `make contrast`, then `make check` — the contrast table regenerates from `palette.json` and `git diff --exit-code` must be clean (the Vim load test runs too).
 4. Update `palette.md` and `README.md` tables if you changed values.
 5. Test the vim colorscheme:

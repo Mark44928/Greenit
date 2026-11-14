@@ -9,7 +9,7 @@ A **generated theme family**: every color artifact is rendered from a single `pa
 | Path | Role |
 |---|---|
 | `palette.json` | All colors, both variants (also carries `version`) |
-| `gen.py` | Renderer + `BUILDS` list (56 artifacts, 32 templates) |
+| `gen.py` | Renderer + `BUILDS` list (58 artifacts, 32 templates) |
 | `templates/*.tmpl` | One template per app format |
 | `tests/contrast.py` | Regenerates the WCAG table inside `palette.md` |
 | `test-colorscheme.sh` | Vim colorscheme load test |
@@ -21,7 +21,7 @@ Everything else — `colors/`, `termux/`, `extras/`, `bat/`, `btop/`, `delta/`, 
 ## Commands
 
 ```bash
-make gen        # python3 ./gen.py — render all 56 artifacts
+make gen        # python3 ./gen.py — render all 58 artifacts
 make contrast   # python3 tests/contrast.py — rewrite the WCAG table in palette.md (idempotent)
 make test       # bash ./test-colorscheme.sh — load both colorschemes in Vim (skips if no vim)
 make check      # gen + contrast + git diff --exit-code + test   ← the gate; CI runs exactly these 4 steps
@@ -67,7 +67,7 @@ Rows are `(template, output path, variant | None)`. Use `None` only when one fil
 
 - Scripts resolve `TMPDIR` themselves (caller → Termux default → `mktemp -d`). Don't hardcode a path; the Termux default doesn't exist on CI runners.
 - `README.md:30` hardcodes the WCAG ratios (dark 12.64:1 / light 11.52:1) — `make contrast` only rewrites the table in `palette.md`, so this line is drift-prone. Verify it by hand after a palette change.
-- `CONTRIBUTING.md` says "regenerate all **40** artifacts" — stale; it's 56. Its vim commands are the interactive form; `test-colorscheme.sh` is the authoritative headless check.
+- `CONTRIBUTING.md` says "regenerate all **40** artifacts" — stale; it's 58. Its vim commands are the interactive form; `test-colorscheme.sh` is the authoritative headless check.
 - README's "ripple rule" still describes manual propagation across `colors/`, `extras/`, `templates/` etc. — `gen.py` does that now; only `palette.json` needs touching.
 
 ## Conventions
