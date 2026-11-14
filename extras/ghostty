@@ -1,5 +1,5 @@
-# Greenit Dark — green-injected terminal theme
-# Install: append to ~/.config/ghostty/config or set in config:
+# Greenit dark — green-injected terminal theme
+# Install: append to ~/.config/ghostty/config, or:
 #   include = $HOME/Greenit/extras/ghostty
 
 background = #0C1F17

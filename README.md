@@ -21,6 +21,13 @@ Green-injected terminal, editor, and shell theme family. Like energreen but slig
 
 **Generated theme family.** Every artifact is rendered from a single `palette.json` by `gen.py` (stdlib only). Run `make gen` to regenerate, `make check` to verify no drift.
 
+Handy generator commands:
+
+```bash
+make gen-only APP=vim   # regenerate only artifacts whose path contains "vim"
+make list-artifacts     # print every generated path (for dotfile scripts)
+```
+
 Two variants: **Dark** (`greenit`) and **Light** (`greenit-light`).
 
 ## Preview
@@ -62,11 +69,11 @@ colorscheme greenit        " dark
 ```
 
 ### Terminal emulators
-
 **Kitty**
 ```bash
 cp extras/kitty.conf ~/.config/kitty/greenit.conf
 # add to kitty.conf:  include greenit.conf
+# light variant:      cp extras/kitty-light.conf ~/.config/kitty/greenit-light.conf
 ```
 
 **Alacritty**
@@ -80,6 +87,7 @@ cp extras/alacritty.toml ~/.config/alacritty/themes/greenit.toml
 ```bash
 cp extras/ghostty ~/.config/ghostty/greenit
 # add to config:  include = ~/.config/ghostty/greenit
+# light variant:  cp extras/ghostty-light ~/.config/ghostty/greenit-light
 ```
 
 **WezTerm**

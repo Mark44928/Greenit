@@ -10,7 +10,7 @@
 # TMPDIR is resolved by each script (Termux default first, then mktemp) so
 # the same commands work on a phone and on CI runners.
 
-.PHONY: gen check contrast test preview
+.PHONY: gen gen-only list-artifacts check contrast test preview
 
 preview:
 	python3 scripts/svgswatch.py
@@ -20,6 +20,15 @@ preview:
 # CI runners. Same commands, both platforms.
 gen:
 	python3 ./gen.py
+
+# make gen-only APP=vim   → regenerate only artifacts whose path matches APP
+gen-only:
+	@test -n "$(APP)" || { echo 'usage: make gen-only APP=<path substring>'; exit 2; }
+	python3 ./gen.py --only "$(APP)"
+
+# print every generated artifact path (handy for scripting and dotfiles)
+list-artifacts:
+	python3 ./gen.py --list
 
 contrast:
 	python3 tests/contrast.py

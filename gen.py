@@ -181,8 +181,10 @@ BUILDS = [
     ("termux.properties.tmpl", "termux/greenit-dark.properties", "dark"),
     ("termux.properties.tmpl", "termux/greenit-light.properties", "light"),
     ("kitty.conf.tmpl", "extras/kitty.conf", "dark"),
+    ("kitty.conf.tmpl", "extras/kitty-light.conf", "light"),
     ("alacritty.toml.tmpl", "extras/alacritty.toml", "dark"),
     ("ghostty.tmpl", "extras/ghostty", "dark"),
+    ("ghostty.tmpl", "extras/ghostty-light", "light"),
     ("wezterm.lua.tmpl", "extras/wezterm.lua", None),
     ("windows-terminal.json.tmpl", "extras/windows-terminal.json", "dark"),
     ("greenit.itermcolors.tmpl", "extras/greenit.itermcolors", "dark"),
@@ -243,12 +245,26 @@ BUILDS = [
 ]
 
 
-def main():
+def main(argv=None):
+    args = list(sys.argv[1:] if argv is None else argv)
+
+    if "--list" in args:
+        for _, output, _ in BUILDS:
+            print(output)
+        return 0
+
+    only = None
+    if "--only" in args:
+        index = args.index("--only")
+        only = args[index + 1] if index + 1 < len(args) else ""
+
     with open(PALETTE, encoding="utf-8") as fh:
         palettes = json.load(fh)["variants"]
 
     rendered = 0
     for template_name, output, variant in BUILDS:
+        if only and only not in output:
+            continue
         template = (TEMPLATES / template_name).read_text(encoding="utf-8")
         if variant is None:
             ctx = {"variants": palettes}
