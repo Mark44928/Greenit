@@ -1,0 +1,23 @@
+{
+  "name": "Greenit Light",
+
+  "background": "#F2F7EF",
+  "foreground": "#24382C",
+  "cursorColor": "#24382C",
+  "black": "#E6EFE2",
+  "red": "#C07A6E",
+  "green": "#7BD88F",
+  "yellow": "#B8CC7A",
+  "blue": "#63C9A8",
+  "purple": "#A88EA0",
+  "cyan": "#7FD7C4",
+  "white": "#C9E4CE",
+  "brightBlack": "#56695C",
+  "brightRed": "#E49A8E",
+  "brightGreen": "#9BEDAF",
+  "brightYellow": "#D4E49A",
+  "brightBlue": "#8FE4C4",
+  "brightPurple": "#D4B4C0",
+  "brightCyan": "#A7EBDC",
+  "brightWhite": "#FFFFFF"
+}

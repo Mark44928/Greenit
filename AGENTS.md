@@ -9,7 +9,7 @@ A **generated theme family**: every color artifact is rendered from a single `pa
 | Path | Role |
 |---|---|
 | `palette.json` | All colors, both variants (also carries `version`) |
-| `gen.py` | Renderer + `BUILDS` list (58 artifacts, 32 templates) |
+| `gen.py` | Renderer + `BUILDS` list (60 artifacts, 32 templates) |
 | `templates/*.tmpl` | One template per app format |
 | `tests/contrast.py` | Regenerates the WCAG table inside `palette.md` |
 | `test-colorscheme.sh` | Vim colorscheme load test |
@@ -21,7 +21,7 @@ Everything else — `colors/`, `termux/`, `extras/`, `bat/`, `btop/`, `delta/`, 
 ## Commands
 
 ```bash
-make gen        # python3 ./gen.py — render all 58 artifacts
+make gen        # python3 ./gen.py — render all 60 artifacts
 make contrast   # python3 tests/contrast.py — rewrite the WCAG table in palette.md (idempotent)
 make test       # bash ./test-colorscheme.sh — load both colorschemes in Vim (skips if no vim)
 make check      # gen + contrast + git diff --exit-code + test   ← the gate; CI runs exactly these 4 steps

@@ -52,7 +52,7 @@
   <text x="356" y="132" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="84" font-weight="800" letter-spacing="11" fill="#DEF4E5">GREENIT</text>
   <text x="358" y="174" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="17" letter-spacing="4.5" fill="#8FB39B">TERMINAL · EDITOR · SHELL THEMES</text>
   <line x1="358" y1="196" x2="780" y2="196" stroke="url(#edge)" stroke-width="2"/>
-  <text x="358" y="230" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" letter-spacing="1.5" fill="#6F917B">dark + light · 58 artifacts from one palette.json</text>
+  <text x="358" y="230" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="14" letter-spacing="1.5" fill="#6F917B">dark + light · 60 artifacts from one palette.json</text>
 
   <g transform="translate(978 214)">
     <circle cx="0" cy="0" r="11" fill="#7BD88F"/>

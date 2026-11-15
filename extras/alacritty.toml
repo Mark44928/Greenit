@@ -1,4 +1,5 @@
 # Greenit Dark — green-injected terminal theme
+
 # Install: cp extras/alacritty.toml ~/.config/alacritty/themes/greenit.toml
 # Then add `import = ["~/.../greenit.toml"]` to alacritty.toml
 
