@@ -97,7 +97,7 @@ cp extras/wezterm.lua ~/.config/wezterm/greenit.lua
 ```
 
 **iTerm2**
-Open iTerm2 → Preferences → Profiles → Colors → Color Presets → Import → select `extras/greenit.itermcolors`.
+Open iTerm2 → Preferences → Profiles → Colors → Color Presets → Import → select `extras/greenit.itermcolors` (or `extras/greenit-light.itermcolors` for the light variant).
 
 **Windows Terminal**
 Import `extras/windows-terminal.json` via **Settings → Color schemes → Import**.
