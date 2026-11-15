@@ -14,6 +14,7 @@ A **generated theme family**: every color artifact is rendered from a single `pa
 | `tests/contrast.py` | Regenerates the WCAG table inside `palette.md` |
 | `test-colorscheme.sh` | Vim colorscheme load test |
 | `Makefile` | Dev targets |
+| `install.sh` | One-command theme installer (detect, backup, copy; never edits app configs) |
 | `README.md`, `palette.md`, `assets/` | Hand-maintained docs (partially generated — see below) |
 
 Everything else — `colors/`, `termux/`, `extras/`, `bat/`, `btop/`, `delta/`, `dircolors/`, `emacs/`, `exa/`, `fastfetch/`, `fish/`, `foot/`, `fzf/`, `git/`, `helix/`, `lazygit/`, `less/`, `lsd/`, `nano/`, `powerlevel10k/`, `ripgrep/`, `starship/`, `tmux/`, `vivid/`, `yazi/`, `zellij/` — is **generated**. Hand-editing is overwritten by `make gen` and breaks the drift gate.
