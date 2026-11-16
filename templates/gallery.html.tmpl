@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Greenit — theme gallery</title>
+<style>
+  :root{color-scheme:dark light;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  *{box-sizing:border-box}
+  body{margin:0;background:#080d16;color:#d8e6f0;line-height:1.5}
+  main{max-width:1040px;margin:auto;padding:28px 18px 56px}
+  h1{font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.04em;margin:.2em 0}
+  h2{font-size:1rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px;color:var(--accent)}
+  p{color:#9baec0;max-width:68ch}
+  a{color:var(--accent)}
+  .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:26px 0}
+  .panel{--bg:{{#variant dark}}${P.terminal.background}{{/variant}};--bg2:{{#variant dark}}${P.editor.surface}{{/variant}};--fg:{{#variant dark}}${P.terminal.foreground}{{/variant}};--accent:{{#variant dark}}${P.accents.primary}{{/variant}};border:1px solid color-mix(in srgb,var(--accent) 38%,transparent);border-radius:18px;padding:18px;background:linear-gradient(145deg,var(--bg2),var(--bg))}
+  .panel.light{--bg:{{#variant light}}${P.terminal.background}{{/variant}};--bg2:{{#variant light}}${P.editor.surface}{{/variant}};--fg:{{#variant light}}${P.terminal.foreground}{{/variant}};--accent:{{#variant light}}${P.accents.primary}{{/variant}};color:var(--fg)}
+  .panel.light p,.panel.light .muted{color:color-mix(in srgb,var(--fg) 64%,transparent)}
+  .term{background:var(--bg);border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);border-radius:12px;padding:14px;font-size:.82rem;overflow:hidden}
+  .term b{color:var(--accent)} .term span{color:color-mix(in srgb,var(--fg) 55%,transparent)}
+  .swatches{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;margin:16px 0}
+  .swatches i{height:26px;border-radius:6px;border:1px solid #ffffff18;background:var(--c)}
+  .meta{display:flex;justify-content:space-between;gap:8px;font-size:.72rem;color:#8296a8}
+  .apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:18px}
+  .app{border:1px solid #ffffff12;border-radius:10px;padding:9px 10px;background:#ffffff05;font-size:.78rem}
+  .app b{display:block;color:var(--fg);font-size:.84rem}
+  code{background:#0b1220;border:1px solid #ffffff12;border-radius:6px;padding:2px 6px;color:#d8e6f0}
+  footer{margin-top:30px;color:#8296a8;font-size:.78rem}
+</style>
+<main>
+  <h1>Greenit</h1>
+  <p>A green-injected terminal, editor and shell family generated from one <code>palette.json</code>. Same palette, dark and light, everywhere.</p>
+
+  {{#variant dark}}
+  <section class="panel dark">
+    <div class="meta"><h2>Dark</h2><span>${P.terminal.background} / ${P.terminal.foreground}</span></div>
+    <div class="term"><b>greenit@termux</b> <span>~</span><br><b>❯</b> echo "${P.accents.primary}"<br><span>${P.terminal.foreground}</span></div>
+    <div class="swatches">
+      <i style="--c:${P.ansi[0]}"></i><i style="--c:${P.ansi[1]}"></i><i style="--c:${P.ansi[2]}"></i><i style="--c:${P.ansi[3]}"></i>
+      <i style="--c:${P.ansi[4]}"></i><i style="--c:${P.ansi[5]}"></i><i style="--c:${P.ansi[6]}"></i><i style="--c:${P.ansi[7]}"></i>
+      <i style="--c:${P.ansi[8]}"></i><i style="--c:${P.ansi[9]}"></i><i style="--c:${P.ansi[10]}"></i><i style="--c:${P.ansi[11]}"></i>
+      <i style="--c:${P.ansi[12]}"></i><i style="--c:${P.ansi[13]}"></i><i style="--c:${P.ansi[14]}"></i><i style="--c:${P.ansi[15]}"></i>
+    </div>
+  </section>
+  {{/variant}}
+
+  {{#variant light}}
+  <section class="panel light">
+    <div class="meta"><h2>Light</h2><span>${P.terminal.background} / ${P.terminal.foreground}</span></div>
+    <div class="term"><b>greenit@termux</b> <span>~</span><br><b>❯</b> echo "${P.accents.primary}"<br><span>${P.terminal.foreground}</span></div>
+    <div class="swatches">
+      <i style="--c:${P.ansi[0]}"></i><i style="--c:${P.ansi[1]}"></i><i style="--c:${P.ansi[2]}"></i><i style="--c:${P.ansi[3]}"></i>
+      <i style="--c:${P.ansi[4]}"></i><i style="--c:${P.ansi[5]}"></i><i style="--c:${P.ansi[6]}"></i><i style="--c:${P.ansi[7]}"></i>
+      <i style="--c:${P.ansi[8]}"></i><i style="--c:${P.ansi[9]}"></i><i style="--c:${P.ansi[10]}"></i><i style="--c:${P.ansi[11]}"></i>
+      <i style="--c:${P.ansi[12]}"></i><i style="--c:${P.ansi[13]}"></i><i style="--c:${P.ansi[14]}"></i><i style="--c:${P.ansi[15]}"></i>
+    </div>
+  </section>
+  {{/variant}}
+
+  <div class="apps">
+    <div class="app"><b>Termux</b>colors.properties</div>
+    <div class="app"><b>kitty</b>theme include</div>
+    <div class="app"><b>Ghostty</b>theme include</div>
+    <div class="app"><b>Alacritty</b>theme import</div>
+    <div class="app"><b>WezTerm</b>theme module</div>
+    <div class="app"><b>foot</b>theme include</div>
+    <div class="app"><b>Vim / Neovim</b>colorscheme</div>
+    <div class="app"><b>Emacs</b>load-theme</div>
+    <div class="app"><b>Helix</b>theme</div>
+    <div class="app"><b>micro</b>color scheme</div>
+    <div class="app"><b>bat</b>tmTheme</div>
+    <div class="app"><b>fzf</b>shell colors</div>
+    <div class="app"><b>starship</b>palette</div>
+    <div class="app"><b>tmux</b>status colors</div>
+    <div class="app"><b>zellij</b>theme</div>
+    <div class="app"><b>delta</b>diff colors</div>
+    <div class="app"><b>lazygit</b>theme</div>
+    <div class="app"><b>yazi</b>theme</div>
+    <div class="app"><b>btop</b>theme</div>
+    <div class="app"><b>fish</b>theme</div>
+    <div class="app"><b>Powerlevel10k</b>prompt</div>
+    <div class="app"><b>fastfetch</b>config</div>
+  </div>
+
+  <footer>Generated from <code>palette.json</code>. Install with <code>./install.sh</code>. <a href="README.md">Full theme guide →</a></footer>
+</main>
+</html>
