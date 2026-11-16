@@ -15,6 +15,8 @@ A **generated theme family**: every color artifact is rendered from a single `pa
 | `test-colorscheme.sh` | Vim colorscheme load test |
 | `Makefile` | Dev targets |
 | `install.sh` | One-command theme installer (detect, backup, copy; never edits app configs) |
+| `lua/greenit/init.lua` | Neovim plugin wrapper for `lazy.nvim`/`vim.pack` |
+| `docs/` | Neovim screenshots and the `demo.lua` capture fixture |
 | `README.md`, `palette.md`, `assets/` | Hand-maintained docs (partially generated — see below) |
 
 Everything else — `colors/`, `termux/`, `extras/`, `bat/`, `btop/`, `delta/`, `dircolors/`, `emacs/`, `exa/`, `fastfetch/`, `fish/`, `foot/`, `fzf/`, `git/`, `helix/`, `lazygit/`, `less/`, `lsd/`, `micro/`, `nano/`, `powerlevel10k/`, `ripgrep/`, `starship/`, `tmux/`, `vivid/`, `yazi/`, `zellij/` — is **generated**. Hand-editing is overwritten by `make gen` and breaks the drift gate.
