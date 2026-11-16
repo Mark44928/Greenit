@@ -16,6 +16,7 @@
 ![Zellij](https://img.shields.io/badge/zellij-supported-green.svg)
 ![Vivid](https://img.shields.io/badge/vivid-supported-green.svg)
 ![Foot](https://img.shields.io/badge/foot-supported-green.svg)
+![micro](https://img.shields.io/badge/micro-supported-green.svg)
 
 Green-injected terminal, editor, and shell theme family. Like energreen but slightly greener — every neutral hue-shifted toward green, every accent a green derivative.
 
@@ -299,6 +300,14 @@ cp btop/greenit-dark.theme ~/.config/btop/themes/
 # set color_theme = "greenit-dark" in btop.conf
 ```
 
+**micro** (`greenit-dark.micro` / `greenit-light.micro`)
+```bash
+mkdir -p ~/.config/micro/colorschemes
+cp micro/greenit-dark.micro ~/.config/micro/colorschemes/
+# in micro: set colorscheme greenit-dark
+# light: cp micro/greenit-light.micro ~/.config/micro/colorschemes/
+```
+
 ## Verify the Colorscheme
 
 ```bash
@@ -369,9 +378,9 @@ Tiny, dependency-free tools from the same family:
 
 - [plusafetch](https://github.com/Mark44928/plusafetch) — C++23 fetch for Termux — ~23 ms, zero subprocesses on the default path
 - [Plusalator](https://github.com/Mark44928/Plusalator) — C++17 calculator REPL — Qalculate-flavored, ghost autosuggest, 18 themes
-- [GrubBlastersHTML](https://github.com/Mark44928/GrubBlastersHTML) — Worms-style artillery in one HTML file — 70 weapons, fully destructible terrain
+- [GrubBlastersHTML](https://github.com/Mark44928/GrubBlastersHTML) — Turn-based artillery in one HTML file — 72 weapons, fully destructible terrain
 - [SnakTUI](https://github.com/Mark44928/SnakTUI) — modern Snake for your terminal — Textual + Python
-- [Easy-Termux-Package-Manager](https://github.com/Mark44928/Easy-Termux-Package-Manager) — fzf-driven package manager for Termux — snapshots, audit, 183 tests
+- [Easy-Termux-Package-Manager](https://github.com/Mark44928/Easy-Termux-Package-Manager) — fzf-driven package manager for Termux — snapshots, audit, 186 tests
 - [NoNameOS](https://github.com/Mark44928/NoNameOS) — OS simulation in a single C++17 file — virtual FS, real shell
 - [CalculaHTML](https://github.com/Mark44928/CalculaHTML) — static HTML calculator — 15 themes + System mode, zero deps
 - [android12-fastfetch](https://github.com/Mark44928/android12-fastfetch) — fastfetch config for Android 12 + native X11 Termux desktops

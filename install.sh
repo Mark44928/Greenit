@@ -40,7 +40,7 @@ Uninstall:
   -h, --help          show this help
 
 Targets: termux kitty alacritty ghostty wezterm foot vim nvim emacs helix
-         bat btop zellij fish lazygit
+         bat btop micro zellij fish lazygit
 
 Examples:
   ./install.sh --all
@@ -115,6 +115,7 @@ target_available() {
         helix)     [ -d "$cfg/helix" ] || have hx ;;
         bat)       have bat ;;
         btop)      [ -d "$cfg/btop" ] || have btop ;;
+        micro)     [ -d "$cfg/micro" ] || have micro ;;
         zellij)    [ -d "$cfg/zellij" ] || have zellij ;;
         fish)      [ -d "$cfg/fish" ] || have fish ;;
         lazygit)   [ -d "$cfg/lazygit" ] || have lazygit ;;
@@ -136,6 +137,7 @@ target_label() {
         helix) echo "Helix (both variants)" ;;
         bat) echo "bat (both variants)" ;;
         btop) echo "btop (both variants)" ;;
+        micro) echo "micro (both variants)" ;;
         zellij) echo "Zellij (both variants)" ;;
         fish) echo "fish (both variants)" ;;
         lazygit) echo "lazygit (both variants)" ;;
@@ -143,7 +145,7 @@ target_label() {
     esac
 }
 
-ALL_TARGETS="termux kitty alacritty ghostty wezterm foot vim nvim emacs helix bat btop zellij fish lazygit"
+ALL_TARGETS="termux kitty alacritty ghostty wezterm foot vim nvim emacs helix bat btop micro zellij fish lazygit"
 
 if [ "$LIST" = "1" ]; then
     printf '%-12s %-8s %s\n' "TARGET" "STATUS" "DETAIL"
@@ -169,7 +171,7 @@ if [ "$UNINSTALL" = "1" ]; then
     { [ -f "$MANIFEST" ] && cat "$MANIFEST" || true; } > "$tmp.old"
     while IFS=$'\t' read -r path old_hash; do
         [ -n "$path" ] || continue
-        if [ ! -e "$path" ]; then continue; fi
+        if [ ! -e "$path" ] && [ ! -L "$path" ]; then continue; fi
         if [ "$FORCE" = "0" ] && [ "$(hash_file "$path")" != "$old_hash" ]; then
             warn "keeping modified file: $path (use --force to remove)"
             printf '%s\t%s\n' "$path" "$old_hash" >> "$tmp"
@@ -225,9 +227,9 @@ elif [ -t 0 ] && [ -t 1 ]; then
                 case "$part" in
                     *-*) lo="${part%-*}"; hi="${part#*-}"
                          [ "$lo" -ge 1 ] 2>/dev/null && [ "$hi" -le "$n" ] 2>/dev/null || die "bad range: $part"
-                         i=$lo; while [ "$i" -le "$hi" ]; do eval "t=\${$i}"; SELECTED="$SELECTED $t"; i=$((i + 1)); done ;;
+                         i=$lo; while [ "$i" -le "$hi" ]; do SELECTED="$SELECTED ${@:$i:1}"; i=$((i + 1)); done ;;
                     *)   [ "$part" -ge 1 ] 2>/dev/null && [ "$part" -le "$n" ] 2>/dev/null || die "bad selection: $part"
-                         eval "t=\${$part}"; SELECTED="$SELECTED $t" ;;
+                         SELECTED="$SELECTED ${@:$part:1}" ;;
                 esac
             done
         fi
@@ -241,7 +243,7 @@ SELECTED="${SELECTED% }"
 
 FAILED=0
 install_file() { # <source> <destination>
-    local src="$1" dst="$2" bak
+    local src="$1" dst="$2" bak tmp
     if [ ! -f "$src" ]; then warn "missing source: $src"; FAILED=1; return 1; fi
     if [ "$DRY" = "1" ]; then
         printf '  would install %s -> %s\n' "${src#"$REPO_DIR"/}" "$dst"
@@ -253,12 +255,25 @@ install_file() { # <source> <destination>
         manifest_upsert "$dst"
         return 0
     fi
-    if [ -e "$dst" ] && [ "$NOBACKUP" = "0" ]; then
-        bak="$dst.bak-$(date +%Y%m%d-%H%M%S)-$$"
-        cp -p "$dst" "$bak"
-        printf '  backup: %s\n' "$bak"
+    if [ -e "$dst" ] || [ -L "$dst" ]; then
+        if [ "$NOBACKUP" = "0" ]; then
+            bak="$dst.bak-$(date +%Y%m%d-%H%M%S)-$$"
+            if [ -L "$dst" ]; then
+                # Keep the symlink itself as the backup instead of writing
+                # through it into whatever it points at.
+                mv "$dst" "$bak"
+            else
+                cp -p "$dst" "$bak"
+            fi
+            printf '  backup: %s\n' "$bak"
+        elif [ -L "$dst" ]; then
+            warn "skipping $dst — it is a symlink and --no-backup is set"
+            FAILED=1; return 1
+        fi
     fi
-    cp -p "$src" "$dst"
+    tmp="$(mktemp "$dst.tmp.XXXXXX")" || { warn "failed to create temp in $(dirname "$dst")"; FAILED=1; return 1; }
+    if ! cp -p "$src" "$tmp"; then rm -f "$tmp"; warn "failed to write $tmp"; FAILED=1; return 1; fi
+    mv -f "$tmp" "$dst"
     manifest_upsert "$dst"
     printf '  installed: %s\n' "$dst"
 }
@@ -339,6 +354,10 @@ for t in $SELECTED; do
         btop)
             both btop "$THEME" theme "$cfg/btop/themes"
             printf '  use: color_theme = "%s-%s" in btop.conf\n' "$THEME" "$VARIANT"
+            ;;
+        micro)
+            both micro "$THEME" micro "$cfg/micro/colorschemes"
+            printf '  use: set colorscheme %s-%s\n' "$THEME" "$VARIANT"
             ;;
         zellij)
             both zellij "$THEME" kdl "$cfg/zellij/themes"
