@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Greenit — green terminal theme family</title>
+<style>
+:root{color-scheme:dark;--bg:#07120c;--p:#0e1b13;--b:#294336;--t:#e5f3e8;--m:#9ab8a5;--a:#7bd88f;--a2:#63c9a8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(80% 55% at 50% 0,#143d27,var(--bg));color:var(--t);font:16px/1.55 ui-sans-serif,system-ui,sans-serif}
+main{max-width:800px;margin:auto;padding:42px 20px 64px}a{color:var(--a2)}.back{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--m)}
+.k{color:var(--a);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin:28px 0 8px}h1{font-size:clamp(2.8rem,10vw,5.8rem);line-height:.9;letter-spacing:-.06em;margin:0}
+.lede{font-size:1.16rem;color:var(--m);max-width:60ch}.buttons{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.btn{padding:9px 14px;border:1px solid var(--b);border-radius:9px;background:var(--p);color:var(--t);text-decoration:none}.btn.primary{border-color:var(--a);color:var(--a)}
+pre{background:var(--p);border:1px solid var(--b);border-radius:10px;padding:13px;overflow:auto}img{width:100%;border:1px solid var(--b);border-radius:14px;margin:24px 0 8px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;padding:0;list-style:none}.grid li{background:var(--p);border:1px solid var(--b);border-radius:10px;padding:12px;color:var(--m)}.grid b{display:block;color:var(--a2)}footer{margin-top:32px;border-top:1px solid var(--b);padding-top:14px;color:var(--m);font-size:.78rem}
+</style>
+<main>
+<a class="back" href="https://github.com/Mark44928">← Mark44928 / projects</a>
+<p class="k">Themes · generated from one palette</p>
+<h1>Greenit</h1>
+<p class="lede">A green-injected terminal and editor family. One <code>palette.json</code> generates every app port, from Termux and Vim to Neovim, bat and the offline gallery.</p>
+<div class="buttons"><a class="btn primary" href="https://github.com/Mark44928/Greenit">Source &amp; install</a><a class="btn" href="https://github.com/Mark44928/Greenit/releases">Releases</a><a class="btn" href="https://mark44928.github.io/Mark44928/">Project hub</a></div>
+<pre>git clone https://github.com/Mark44928/Greenit.git
+cd Greenit &amp;&amp; ./install.sh</pre>
+<img src="docs/neovim-dark.png" alt="Greenit in Neovim">
+<ul class="grid"><li><b>64 artifacts</b>dark and light from one source</li><li><b>Real apps</b>Termux, Vim, Neovim, bat, tmux, Yazi</li><li><b>Gallery</b>offline preview for every port</li><li><b>Contrast checked</b>WCAG values regenerated</li></ul>
+<footer>Generated, not hand-painted. Change the palette, regenerate everything.</footer>
+</main>
+</html>
