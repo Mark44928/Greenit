@@ -22,7 +22,7 @@ Green-injected terminal, editor, and shell theme family. Like energreen but slig
 
 **Generated theme family.** Every artifact is rendered from a single `palette.json` by `gen.py` (stdlib only). Run `make gen` to regenerate, `make check` to verify no drift.
 
-**[Open the theme gallery →](gallery.html)** — dark/light swatches, terminal preview and every supported app in one offline page.
+**[Open the theme gallery →](https://mark44928.github.io/Greenit/gallery.html)** — dark/light swatches, terminal preview and every supported app in one offline page.
 
 Handy generator commands:
 
