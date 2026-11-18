@@ -35,6 +35,7 @@ contrast:
 
 test:
 	bash ./test-colorscheme.sh
+	node tests/test_gallery_copy.mjs
 
 check: gen contrast
 	git diff --exit-code

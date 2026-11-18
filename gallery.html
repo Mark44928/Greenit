@@ -180,6 +180,21 @@
     });
     empty.hidden = shown !== 0;
     filterStatus.textContent = 'Showing ' + shown + ' of ' + items.length + ' items';
+    document.querySelectorAll('.copy-path').forEach(function (btn) {
+      var path = copyPathFor(btn);
+      var code = btn.querySelector('code');
+      if (code) code.textContent = path;
+      btn.setAttribute('aria-label', 'Copy artifact path ' + path);
+      btn.title = 'Click to copy ' + path;
+    });
+  }
+
+  function copyPathFor(btn) {
+    var path = btn.getAttribute('data-copy');
+    if (current !== 'light') return path;
+    if (path.indexOf('-dark') !== -1) return path.replace('-dark', '-light');
+    if (/\/greenit\.vim$/.test(path)) return path.replace(/\.vim$/, '-light.vim');
+    return path;
   }
 
   chips.forEach(function (chip) {
@@ -209,7 +224,7 @@
   document.addEventListener('click', function (ev) {
     var btn = ev.target.closest ? ev.target.closest('[data-copy]') : null;
     if (!btn) return;
-    var text = btn.getAttribute('data-copy');
+    var text = copyPathFor(btn);
     var done = function (ok) {
       announce(ok ? 'Copied ' + text : 'Copy not available — select the text manually');
     };
