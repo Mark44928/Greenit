@@ -4,14 +4,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Greenit — theme gallery</title>
 <style>
-  :root{color-scheme:dark light;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  :root{color-scheme:dark light;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;--accent:#7BD88F}
   *{box-sizing:border-box}
+  [hidden]{display:none !important}
   body{margin:0;background:#080d16;color:#d8e6f0;line-height:1.5}
   main{max-width:1040px;margin:auto;padding:28px 18px 56px}
   h1{font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.04em;margin:.2em 0}
   h2{font-size:1rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px;color:var(--accent)}
   p{color:#9baec0;max-width:68ch}
   a{color:var(--accent)}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .controls{margin:22px 0 6px;padding:14px;border:1px solid #ffffff12;border-radius:14px;background:#ffffff05}
+  .search{display:block;font-size:.78rem;color:#9baec0}
+  .search input{display:block;width:100%;margin-top:6px;background:#0b1220;border:1px solid #ffffff1f;border-radius:8px;color:#d8e6f0;padding:8px 10px;font:inherit;font-size:.85rem}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{border:1px solid #ffffff1f;background:#0b1220;color:#9baec0;border-radius:999px;padding:5px 12px;font:inherit;font-size:.75rem;cursor:pointer}
+  .chip:hover{color:#d8e6f0;border-color:#ffffff3d}
+  .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#080d16;font-weight:700}
+  .controls .status{margin:10px 0 0;font-size:.75rem;color:#9baec0;min-height:1.2em;max-width:none}
+  .copy-status{margin:10px 0 0;font-size:.75rem;color:var(--accent);min-height:1.2em;max-width:none}
+  .noscript{margin:22px 0 6px;padding:10px 14px;border:1px dashed #ffffff1f;border-radius:12px;color:#9baec0;font-size:.78rem}
   .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:26px 0}
   .panel{--bg:#0C1F17;--bg2:#122A1F;--fg:#C9E4CE;--accent:#7BD88F;border:1px solid color-mix(in srgb,var(--accent) 38%,transparent);border-radius:18px;padding:18px;background:linear-gradient(145deg,var(--bg2),var(--bg))}
   .panel.light{--bg:#F2F7EF;--bg2:#E6EFE2;--fg:#24382C;--accent:#7BD88F;color:var(--fg)}
@@ -19,69 +31,196 @@
   .term{background:var(--bg);border:1px solid color-mix(in srgb,var(--accent) 28%,transparent);border-radius:12px;padding:14px;font-size:.82rem;overflow:hidden}
   .term b{color:var(--accent)} .term span{color:color-mix(in srgb,var(--fg) 55%,transparent)}
   .swatches{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;margin:16px 0}
-  .swatches i{height:26px;border-radius:6px;border:1px solid #ffffff18;background:var(--c)}
+  .swatch{display:block;border:0;padding:0;background:none;cursor:pointer;text-align:center;font:inherit}
+  .swatch i{display:block;height:26px;border-radius:6px;border:1px solid #ffffff18;background:var(--c)}
+  .swatch:hover i{border-color:var(--accent)}
+  .hex{display:block;font-size:.58rem;color:color-mix(in srgb,var(--fg,#d8e6f0) 62%,transparent);margin-top:3px;background:none;border:0;padding:0;font-family:inherit;cursor:pointer;letter-spacing:.02em}
+  .hex:hover,.hex:focus-visible{color:var(--fg,#d8e6f0);text-decoration:underline}
+  .hex.inline{display:inline;font-size:inherit;margin:0;letter-spacing:0}
+  .term .hex{display:inline;font-size:inherit;margin:0;color:color-mix(in srgb,var(--fg) 55%,transparent)}
+  .term .hex:hover{color:var(--fg)}
   .meta{display:flex;justify-content:space-between;gap:8px;font-size:.72rem;color:#8296a8}
   .apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:18px}
   .app{border:1px solid #ffffff12;border-radius:10px;padding:9px 10px;background:#ffffff05;font-size:.78rem}
   .app b{display:block;color:var(--fg);font-size:.84rem}
+  .copy-path{display:inline-block;margin-top:4px;background:#0b1220;border:1px solid #ffffff12;border-radius:6px;padding:2px 6px;max-width:100%;cursor:pointer;font:inherit}
+  .copy-path code{background:none;border:0;padding:0;color:#d8e6f0;font-size:.68rem;word-break:break-all}
+  .copy-path:hover,.copy-path:focus-visible{border-color:var(--accent)}
   code{background:#0b1220;border:1px solid #ffffff12;border-radius:6px;padding:2px 6px;color:#d8e6f0}
+  .empty{margin:18px 0;padding:18px;border:1px dashed #ffffff1f;border-radius:12px;text-align:center;color:#9baec0}
   footer{margin-top:30px;color:#8296a8;font-size:.78rem}
 </style>
 <main>
   <h1>Greenit</h1>
   <p>A green-injected terminal, editor and shell family generated from one <code>palette.json</code>. Same palette, dark and light, everywhere.</p>
 
+  <noscript><p class="noscript">Search, filters and copy buttons need JavaScript. Every hex value and artifact path on this page is plain selectable text you can copy manually.</p></noscript>
+
+  <div class="controls" id="controls" hidden>
+    <label class="search">Search apps, paths and hex colors
+      <input type="search" id="q" placeholder="e.g. kitty, editor, #7BD88F" autocomplete="off" spellcheck="false">
+    </label>
+    <div class="chips" role="group" aria-label="Filter by category">
+      <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="chip" data-filter="dark" aria-pressed="false">Dark</button>
+      <button type="button" class="chip" data-filter="light" aria-pressed="false">Light</button>
+      <button type="button" class="chip" data-filter="terminal" aria-pressed="false">Terminal</button>
+      <button type="button" class="chip" data-filter="editor" aria-pressed="false">Editor</button>
+      <button type="button" class="chip" data-filter="shell" aria-pressed="false">Shell</button>
+      <button type="button" class="chip" data-filter="cli" aria-pressed="false">CLI</button>
+      <button type="button" class="chip" data-filter="system" aria-pressed="false">System</button>
+      <button type="button" class="chip" data-filter="git" aria-pressed="false">Git</button>
+    </div>
+    <p class="status" id="filter-status" role="status" aria-live="polite"></p>
+    <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+  </div>
+
   
-  <section class="panel dark">
-    <div class="meta"><h2>Dark</h2><span>#0C1F17 / #C9E4CE</span></div>
-    <div class="term"><b>greenit@termux</b> <span>~</span><br><b>❯</b> echo "#7BD88F"<br><span>#C9E4CE</span></div>
+  <section class="panel dark" data-tags="dark">
+    <div class="meta"><h2>Dark</h2><span><button type="button" class="hex inline" data-copy="#0C1F17" aria-label="Copy background #0C1F17" title="Copy background">#0C1F17</button> / <button type="button" class="hex inline" data-copy="#C9E4CE" aria-label="Copy foreground #C9E4CE" title="Copy foreground">#C9E4CE</button></span></div>
+    <div class="term"><b>greenit@termux</b> <span>~</span><br><b>❯</b> echo "#7BD88F"<br><button type="button" class="hex" data-copy="#C9E4CE" aria-label="Copy #C9E4CE" title="Copy">#C9E4CE</button></div>
     <div class="swatches">
-      <i style="--c:#1A331C"></i><i style="--c:#A88EA0"></i><i style="--c:#7BD88F"></i><i style="--c:#B8CC7A"></i>
-      <i style="--c:#63C9A8"></i><i style="--c:#A88EA0"></i><i style="--c:#7FD7C4"></i><i style="--c:#A7C4A3"></i>
-      <i style="--c:#78997F"></i><i style="--c:#D4B4C0"></i><i style="--c:#9BEDAF"></i><i style="--c:#D4E49A"></i>
-      <i style="--c:#8FE4C4"></i><i style="--c:#D4B4C0"></i><i style="--c:#A7EBDC"></i><i style="--c:#C9E4CE"></i>
+      <button type="button" class="swatch" data-copy="#1A331C" style="--c:#1A331C" aria-label="Copy #1A331C" title="Copy #1A331C"><i></i><span class="hex">#1A331C</span></button>
+      <button type="button" class="swatch" data-copy="#A88EA0" style="--c:#A88EA0" aria-label="Copy #A88EA0" title="Copy #A88EA0"><i></i><span class="hex">#A88EA0</span></button>
+      <button type="button" class="swatch" data-copy="#7BD88F" style="--c:#7BD88F" aria-label="Copy #7BD88F" title="Copy #7BD88F"><i></i><span class="hex">#7BD88F</span></button>
+      <button type="button" class="swatch" data-copy="#B8CC7A" style="--c:#B8CC7A" aria-label="Copy #B8CC7A" title="Copy #B8CC7A"><i></i><span class="hex">#B8CC7A</span></button>
+      <button type="button" class="swatch" data-copy="#63C9A8" style="--c:#63C9A8" aria-label="Copy #63C9A8" title="Copy #63C9A8"><i></i><span class="hex">#63C9A8</span></button>
+      <button type="button" class="swatch" data-copy="#A88EA0" style="--c:#A88EA0" aria-label="Copy #A88EA0" title="Copy #A88EA0"><i></i><span class="hex">#A88EA0</span></button>
+      <button type="button" class="swatch" data-copy="#7FD7C4" style="--c:#7FD7C4" aria-label="Copy #7FD7C4" title="Copy #7FD7C4"><i></i><span class="hex">#7FD7C4</span></button>
+      <button type="button" class="swatch" data-copy="#A7C4A3" style="--c:#A7C4A3" aria-label="Copy #A7C4A3" title="Copy #A7C4A3"><i></i><span class="hex">#A7C4A3</span></button>
+      <button type="button" class="swatch" data-copy="#78997F" style="--c:#78997F" aria-label="Copy #78997F" title="Copy #78997F"><i></i><span class="hex">#78997F</span></button>
+      <button type="button" class="swatch" data-copy="#D4B4C0" style="--c:#D4B4C0" aria-label="Copy #D4B4C0" title="Copy #D4B4C0"><i></i><span class="hex">#D4B4C0</span></button>
+      <button type="button" class="swatch" data-copy="#9BEDAF" style="--c:#9BEDAF" aria-label="Copy #9BEDAF" title="Copy #9BEDAF"><i></i><span class="hex">#9BEDAF</span></button>
+      <button type="button" class="swatch" data-copy="#D4E49A" style="--c:#D4E49A" aria-label="Copy #D4E49A" title="Copy #D4E49A"><i></i><span class="hex">#D4E49A</span></button>
+      <button type="button" class="swatch" data-copy="#8FE4C4" style="--c:#8FE4C4" aria-label="Copy #8FE4C4" title="Copy #8FE4C4"><i></i><span class="hex">#8FE4C4</span></button>
+      <button type="button" class="swatch" data-copy="#D4B4C0" style="--c:#D4B4C0" aria-label="Copy #D4B4C0" title="Copy #D4B4C0"><i></i><span class="hex">#D4B4C0</span></button>
+      <button type="button" class="swatch" data-copy="#A7EBDC" style="--c:#A7EBDC" aria-label="Copy #A7EBDC" title="Copy #A7EBDC"><i></i><span class="hex">#A7EBDC</span></button>
+      <button type="button" class="swatch" data-copy="#C9E4CE" style="--c:#C9E4CE" aria-label="Copy #C9E4CE" title="Copy #C9E4CE"><i></i><span class="hex">#C9E4CE</span></button>
     </div>
   </section>
   
 
   
-  <section class="panel light">
-    <div class="meta"><h2>Light</h2><span>#F2F7EF / #24382C</span></div>
-    <div class="term"><b>greenit@termux</b> <span>~</span><br><b>❯</b> echo "#7BD88F"<br><span>#24382C</span></div>
+  <section class="panel light" data-tags="light">
+    <div class="meta"><h2>Light</h2><span><button type="button" class="hex inline" data-copy="#F2F7EF" aria-label="Copy background #F2F7EF" title="Copy background">#F2F7EF</button> / <button type="button" class="hex inline" data-copy="#24382C" aria-label="Copy foreground #24382C" title="Copy foreground">#24382C</button></span></div>
+    <div class="term"><b>greenit@termux</b> <span>~</span><br><b>❯</b> echo "#7BD88F"<br><button type="button" class="hex" data-copy="#24382C" aria-label="Copy #24382C" title="Copy">#24382C</button></div>
     <div class="swatches">
-      <i style="--c:#E6EFE2"></i><i style="--c:#C07A6E"></i><i style="--c:#7BD88F"></i><i style="--c:#B8CC7A"></i>
-      <i style="--c:#63C9A8"></i><i style="--c:#A88EA0"></i><i style="--c:#7FD7C4"></i><i style="--c:#C9E4CE"></i>
-      <i style="--c:#56695C"></i><i style="--c:#E49A8E"></i><i style="--c:#9BEDAF"></i><i style="--c:#D4E49A"></i>
-      <i style="--c:#8FE4C4"></i><i style="--c:#D4B4C0"></i><i style="--c:#A7EBDC"></i><i style="--c:#FFFFFF"></i>
+      <button type="button" class="swatch" data-copy="#E6EFE2" style="--c:#E6EFE2" aria-label="Copy #E6EFE2" title="Copy #E6EFE2"><i></i><span class="hex">#E6EFE2</span></button>
+      <button type="button" class="swatch" data-copy="#C07A6E" style="--c:#C07A6E" aria-label="Copy #C07A6E" title="Copy #C07A6E"><i></i><span class="hex">#C07A6E</span></button>
+      <button type="button" class="swatch" data-copy="#7BD88F" style="--c:#7BD88F" aria-label="Copy #7BD88F" title="Copy #7BD88F"><i></i><span class="hex">#7BD88F</span></button>
+      <button type="button" class="swatch" data-copy="#B8CC7A" style="--c:#B8CC7A" aria-label="Copy #B8CC7A" title="Copy #B8CC7A"><i></i><span class="hex">#B8CC7A</span></button>
+      <button type="button" class="swatch" data-copy="#63C9A8" style="--c:#63C9A8" aria-label="Copy #63C9A8" title="Copy #63C9A8"><i></i><span class="hex">#63C9A8</span></button>
+      <button type="button" class="swatch" data-copy="#A88EA0" style="--c:#A88EA0" aria-label="Copy #A88EA0" title="Copy #A88EA0"><i></i><span class="hex">#A88EA0</span></button>
+      <button type="button" class="swatch" data-copy="#7FD7C4" style="--c:#7FD7C4" aria-label="Copy #7FD7C4" title="Copy #7FD7C4"><i></i><span class="hex">#7FD7C4</span></button>
+      <button type="button" class="swatch" data-copy="#C9E4CE" style="--c:#C9E4CE" aria-label="Copy #C9E4CE" title="Copy #C9E4CE"><i></i><span class="hex">#C9E4CE</span></button>
+      <button type="button" class="swatch" data-copy="#56695C" style="--c:#56695C" aria-label="Copy #56695C" title="Copy #56695C"><i></i><span class="hex">#56695C</span></button>
+      <button type="button" class="swatch" data-copy="#E49A8E" style="--c:#E49A8E" aria-label="Copy #E49A8E" title="Copy #E49A8E"><i></i><span class="hex">#E49A8E</span></button>
+      <button type="button" class="swatch" data-copy="#9BEDAF" style="--c:#9BEDAF" aria-label="Copy #9BEDAF" title="Copy #9BEDAF"><i></i><span class="hex">#9BEDAF</span></button>
+      <button type="button" class="swatch" data-copy="#D4E49A" style="--c:#D4E49A" aria-label="Copy #D4E49A" title="Copy #D4E49A"><i></i><span class="hex">#D4E49A</span></button>
+      <button type="button" class="swatch" data-copy="#8FE4C4" style="--c:#8FE4C4" aria-label="Copy #8FE4C4" title="Copy #8FE4C4"><i></i><span class="hex">#8FE4C4</span></button>
+      <button type="button" class="swatch" data-copy="#D4B4C0" style="--c:#D4B4C0" aria-label="Copy #D4B4C0" title="Copy #D4B4C0"><i></i><span class="hex">#D4B4C0</span></button>
+      <button type="button" class="swatch" data-copy="#A7EBDC" style="--c:#A7EBDC" aria-label="Copy #A7EBDC" title="Copy #A7EBDC"><i></i><span class="hex">#A7EBDC</span></button>
+      <button type="button" class="swatch" data-copy="#FFFFFF" style="--c:#FFFFFF" aria-label="Copy #FFFFFF" title="Copy #FFFFFF"><i></i><span class="hex">#FFFFFF</span></button>
     </div>
   </section>
   
 
   <div class="apps">
-    <div class="app"><b>Termux</b>colors.properties</div>
-    <div class="app"><b>kitty</b>theme include</div>
-    <div class="app"><b>Ghostty</b>theme include</div>
-    <div class="app"><b>Alacritty</b>theme import</div>
-    <div class="app"><b>WezTerm</b>theme module</div>
-    <div class="app"><b>foot</b>theme include</div>
-    <div class="app"><b>Vim / Neovim</b>colorscheme</div>
-    <div class="app"><b>Emacs</b>load-theme</div>
-    <div class="app"><b>Helix</b>theme</div>
-    <div class="app"><b>micro</b>color scheme</div>
-    <div class="app"><b>bat</b>tmTheme</div>
-    <div class="app"><b>fzf</b>shell colors</div>
-    <div class="app"><b>starship</b>palette</div>
-    <div class="app"><b>tmux</b>status colors</div>
-    <div class="app"><b>zellij</b>theme</div>
-    <div class="app"><b>delta</b>diff colors</div>
-    <div class="app"><b>lazygit</b>theme</div>
-    <div class="app"><b>yazi</b>theme</div>
-    <div class="app"><b>btop</b>theme</div>
-    <div class="app"><b>fish</b>theme</div>
-    <div class="app"><b>Powerlevel10k</b>prompt</div>
-    <div class="app"><b>fastfetch</b>config</div>
+    <div class="app" data-tags="dark light terminal"><b>Termux</b><button type="button" class="copy-path" data-copy="termux/greenit-dark.properties" aria-label="Copy artifact path termux/greenit-dark.properties" title="Click to copy"><code>termux/greenit-dark.properties</code></button></div>
+    <div class="app" data-tags="dark light terminal"><b>kitty</b><button type="button" class="copy-path" data-copy="extras/kitty.conf" aria-label="Copy artifact path extras/kitty.conf" title="Click to copy"><code>extras/kitty.conf</code></button></div>
+    <div class="app" data-tags="dark light terminal"><b>Ghostty</b><button type="button" class="copy-path" data-copy="extras/ghostty" aria-label="Copy artifact path extras/ghostty" title="Click to copy"><code>extras/ghostty</code></button></div>
+    <div class="app" data-tags="dark light terminal"><b>Alacritty</b><button type="button" class="copy-path" data-copy="extras/alacritty.toml" aria-label="Copy artifact path extras/alacritty.toml" title="Click to copy"><code>extras/alacritty.toml</code></button></div>
+    <div class="app" data-tags="dark light terminal"><b>WezTerm</b><button type="button" class="copy-path" data-copy="extras/wezterm.lua" aria-label="Copy artifact path extras/wezterm.lua (both variants)" title="Click to copy"><code>extras/wezterm.lua</code></button></div>
+    <div class="app" data-tags="dark light terminal"><b>foot</b><button type="button" class="copy-path" data-copy="foot/greenit-dark.ini" aria-label="Copy artifact path foot/greenit-dark.ini" title="Click to copy"><code>foot/greenit-dark.ini</code></button></div>
+    <div class="app" data-tags="dark light terminal"><b>tmux</b><button type="button" class="copy-path" data-copy="tmux/greenit-dark.conf" aria-label="Copy artifact path tmux/greenit-dark.conf" title="Click to copy"><code>tmux/greenit-dark.conf</code></button></div>
+    <div class="app" data-tags="dark light terminal"><b>zellij</b><button type="button" class="copy-path" data-copy="zellij/greenit-dark.kdl" aria-label="Copy artifact path zellij/greenit-dark.kdl" title="Click to copy"><code>zellij/greenit-dark.kdl</code></button></div>
+    <div class="app" data-tags="dark light editor"><b>Vim / Neovim</b><button type="button" class="copy-path" data-copy="colors/greenit.vim" aria-label="Copy artifact path colors/greenit.vim (both variants)" title="Click to copy"><code>colors/greenit.vim</code></button></div>
+    <div class="app" data-tags="dark light editor"><b>Emacs</b><button type="button" class="copy-path" data-copy="emacs/greenit-dark-theme.el" aria-label="Copy artifact path emacs/greenit-dark-theme.el" title="Click to copy"><code>emacs/greenit-dark-theme.el</code></button></div>
+    <div class="app" data-tags="dark light editor"><b>Helix</b><button type="button" class="copy-path" data-copy="helix/greenit-dark.toml" aria-label="Copy artifact path helix/greenit-dark.toml" title="Click to copy"><code>helix/greenit-dark.toml</code></button></div>
+    <div class="app" data-tags="dark light editor"><b>micro</b><button type="button" class="copy-path" data-copy="micro/greenit-dark.micro" aria-label="Copy artifact path micro/greenit-dark.micro" title="Click to copy"><code>micro/greenit-dark.micro</code></button></div>
+    <div class="app" data-tags="dark light cli"><b>bat</b><button type="button" class="copy-path" data-copy="bat/greenit-dark.tmTheme" aria-label="Copy artifact path bat/greenit-dark.tmTheme" title="Click to copy"><code>bat/greenit-dark.tmTheme</code></button></div>
+    <div class="app" data-tags="dark light shell"><b>fzf</b><button type="button" class="copy-path" data-copy="fzf/greenit-dark.sh" aria-label="Copy artifact path fzf/greenit-dark.sh" title="Click to copy"><code>fzf/greenit-dark.sh</code></button></div>
+    <div class="app" data-tags="dark light shell"><b>starship</b><button type="button" class="copy-path" data-copy="starship/greenit-dark.toml" aria-label="Copy artifact path starship/greenit-dark.toml" title="Click to copy"><code>starship/greenit-dark.toml</code></button></div>
+    <div class="app" data-tags="dark light shell"><b>fish</b><button type="button" class="copy-path" data-copy="fish/greenit-dark.theme" aria-label="Copy artifact path fish/greenit-dark.theme" title="Click to copy"><code>fish/greenit-dark.theme</code></button></div>
+    <div class="app" data-tags="dark light shell"><b>Powerlevel10k</b><button type="button" class="copy-path" data-copy="powerlevel10k/greenit-dark.zsh" aria-label="Copy artifact path powerlevel10k/greenit-dark.zsh" title="Click to copy"><code>powerlevel10k/greenit-dark.zsh</code></button></div>
+    <div class="app" data-tags="dark light cli git"><b>delta</b><button type="button" class="copy-path" data-copy="delta/greenit-dark.config" aria-label="Copy artifact path delta/greenit-dark.config" title="Click to copy"><code>delta/greenit-dark.config</code></button></div>
+    <div class="app" data-tags="dark light cli git"><b>lazygit</b><button type="button" class="copy-path" data-copy="lazygit/greenit-dark.yml" aria-label="Copy artifact path lazygit/greenit-dark.yml" title="Click to copy"><code>lazygit/greenit-dark.yml</code></button></div>
+    <div class="app" data-tags="dark light cli"><b>yazi</b><button type="button" class="copy-path" data-copy="yazi/greenit-dark.toml" aria-label="Copy artifact path yazi/greenit-dark.toml" title="Click to copy"><code>yazi/greenit-dark.toml</code></button></div>
+    <div class="app" data-tags="dark light system"><b>btop</b><button type="button" class="copy-path" data-copy="btop/greenit-dark.theme" aria-label="Copy artifact path btop/greenit-dark.theme" title="Click to copy"><code>btop/greenit-dark.theme</code></button></div>
+    <div class="app" data-tags="dark light system"><b>fastfetch</b><button type="button" class="copy-path" data-copy="fastfetch/greenit-dark.jsonc" aria-label="Copy artifact path fastfetch/greenit-dark.jsonc" title="Click to copy"><code>fastfetch/greenit-dark.jsonc</code></button></div>
   </div>
+
+  <p class="empty" id="empty" hidden>No matches. Try a different search term or category.</p>
 
   <footer>Generated from <code>palette.json</code>. Install with <code>./install.sh</code>. <a href="README.md">Full theme guide →</a></footer>
 </main>
+<script>
+(function () {
+  var controls = document.getElementById('controls');
+  var q = document.getElementById('q');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-tags]'));
+  var filterStatus = document.getElementById('filter-status');
+  var copyStatus = document.getElementById('copy-status');
+  var empty = document.getElementById('empty');
+  var current = 'all';
+
+  controls.hidden = false;
+
+  function apply() {
+    var term = q.value.trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function (item) {
+      var tags = (item.getAttribute('data-tags') || '').split(/\s+/);
+      var tagOk = current === 'all' || tags.indexOf(current) !== -1;
+      var hay = (item.textContent + ' ' + (item.getAttribute('data-tags') || '')).toLowerCase();
+      var ok = tagOk && (!term || hay.indexOf(term) !== -1);
+      item.hidden = !ok;
+      if (ok) shown += 1;
+    });
+    empty.hidden = shown !== 0;
+    filterStatus.textContent = 'Showing ' + shown + ' of ' + items.length + ' items';
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      current = chip.getAttribute('data-filter');
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+      apply();
+    });
+  });
+  q.addEventListener('input', apply);
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:absolute;left:-9999px;top:0;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  function announce(msg) { copyStatus.textContent = msg; }
+
+  document.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('[data-copy]') : null;
+    if (!btn) return;
+    var text = btn.getAttribute('data-copy');
+    var done = function (ok) {
+      announce(ok ? 'Copied ' + text : 'Copy not available — select the text manually');
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+    } else {
+      done(fallbackCopy(text));
+    }
+  });
+
+  apply();
+})();
+</script>
 </html>
