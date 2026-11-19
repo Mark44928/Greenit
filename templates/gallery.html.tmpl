@@ -152,7 +152,7 @@
 
   <p class="empty" id="empty" hidden>No matches. Try a different search term or category.</p>
 
-  <footer>Generated from <code>palette.json</code>. Install with <code>./install.sh</code>. <a href="README.md">Full theme guide →</a></footer>
+  <footer>Generated from <code>palette.json</code>. Install with <code>bash install.sh</code>. <a href="README.md">Full theme guide →</a></footer>
 </main>
 <script>
 (function () {
@@ -193,8 +193,10 @@
     var path = btn.getAttribute('data-copy');
     if (current !== 'light') return path;
     if (path.indexOf('-dark') !== -1) return path.replace('-dark', '-light');
-    if (/\/greenit\.vim$/.test(path)) return path.replace(/\.vim$/, '-light.vim');
-    return path;
+    // flat names whose light counterpart is a "-light" sibling
+    var flat = { 'extras/kitty.conf': 'extras/kitty-light.conf', 'extras/ghostty': 'extras/ghostty-light', 'extras/alacritty.toml': 'extras/alacritty-light.toml' };
+    if (flat[path]) return flat[path];
+    return path; // shared artifacts (wezterm.lua, vim) contain both variants
   }
 
   chips.forEach(function (chip) {

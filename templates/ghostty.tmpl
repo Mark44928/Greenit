@@ -1,6 +1,11 @@
 # Greenit ${variant} — green-injected terminal theme
+{{#if is_light}}
+# Install: append to ~/.config/ghostty/config, or:
+#   include = $HOME/Greenit/extras/ghostty-light
+{{else}}
 # Install: append to ~/.config/ghostty/config, or:
 #   include = $HOME/Greenit/extras/ghostty
+{{/if}}
 
 background = ${P.terminal.background}
 foreground = ${P.terminal.foreground}

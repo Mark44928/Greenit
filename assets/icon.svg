@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="t d">
   <title id="t">Greenit</title>
-  <desc id="d">Minimal Greenit app icon: a flat green leaf on a dark green tile.</desc>
+  <desc id="d">Greenit app icon: a diagonal green leaf with a stem and central vein on a dark green tile.</desc>
   <rect width="512" height="512" rx="104" fill="#0C1F17"/>
-  <g transform="translate(256 258)">
-    <path d="M0,-168 C 120,-64 136,46 104,140 C 78,216 -78,216 -104,140 C -136,46 -120,-64 0,-168 Z"
-          fill="#7BD88F"/>
-    <path d="M0,-114 C 16,-16 16,66 0,148" fill="none" stroke="#0C1F17" stroke-width="12" stroke-linecap="round"/>
+  <g transform="translate(246 258)">
+    <path d="M-140 126 Q-168 142 -180 170" fill="none" stroke="#7BD88F" stroke-width="15" stroke-linecap="round"/>
+    <path d="M-140 126 C-82 0 18 -110 158 -152 C146 -34 56 84 -140 126 Z" fill="#7BD88F"/>
+    <path d="M-133 120 C-52 44 34 -62 153 -145" fill="none" stroke="#0C1F17" stroke-width="10" stroke-linecap="round"/>
+    <path d="M-65 62 L-94 51 M-8 2 L-25 -44 M48 -52 L80 -50" fill="none" stroke="#0C1F17" stroke-width="8" stroke-linecap="round"/>
   </g>
 </svg>

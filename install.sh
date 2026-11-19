@@ -21,7 +21,7 @@ MANIFEST="$STATE_DIR/installed.tsv"
 
 usage() {
     cat <<EOF
-Usage: ./install.sh [options]
+Usage: bash install.sh [options]
 
 Install options:
   --dark              install dark artifacts (default)
@@ -43,9 +43,9 @@ Targets: termux kitty alacritty ghostty wezterm foot vim nvim emacs helix
          bat btop micro zellij fish lazygit
 
 Examples:
-  ./install.sh --all
-  ./install.sh --light --only termux,kitty,vim
-  ./install.sh --uninstall
+  bash install.sh --all
+  bash install.sh --light --only termux,kitty,vim
+  bash install.sh --uninstall
 EOF
 }
 

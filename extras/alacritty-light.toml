@@ -1,7 +1,12 @@
 # Greenit Light — green-injected terminal theme
 
+
+# Install: cp extras/alacritty-light.toml ~/.config/alacritty/themes/greenit-light.toml
+# Then add `import = ["~/.../greenit-light.toml"]` to alacritty.toml
+{{else}}
 # Install: cp extras/alacritty.toml ~/.config/alacritty/themes/greenit.toml
 # Then add `import = ["~/.../greenit.toml"]` to alacritty.toml
+
 
 [colors.primary]
 background = "#F2F7EF"
