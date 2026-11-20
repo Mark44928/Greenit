@@ -111,6 +111,8 @@ set termguicolors
 colorscheme greenit
 ```
 
+![Greenit terminal theme](docs/screenshot-terminal.png)
+
 **Screenshots:** [dark](docs/neovim-dark.png) · [light](docs/neovim-light.png)
 
 | Neovim dark | Neovim light |
