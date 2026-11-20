@@ -10,10 +10,13 @@
 # TMPDIR is resolved by each script (Termux default first, then mktemp) so
 # the same commands work on a phone and on CI runners.
 
-.PHONY: gen gen-only list-artifacts check contrast test preview
+.PHONY: gen gen-only list-artifacts check contrast test preview preview-term
 
 preview:
 	python3 scripts/svgswatch.py
+
+preview-term:
+	python3 scripts/terminal_preview.py
 
 # Invoke through the interpreter, not ./script: the files carry the Termux
 # shebang (their path only exists on Android), which breaks `make` on Linux
