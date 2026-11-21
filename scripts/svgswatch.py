@@ -57,10 +57,11 @@ def panel(lines, variant, data):
 
 
 def main():
-    cfg = json.load(open(os.path.join(ROOT, 'palette.json')))
+    with open(os.path.join(ROOT, 'palette.json'), encoding='utf-8') as f:
+        cfg = json.load(f)
     lines = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}">',
-        f'<title>Greenit palette preview — dark (left) and light (right) variants</title>',
+        '<title>Greenit palette preview — dark (left) and light (right) variants</title>',
         f'<rect width="{WIDTH}" height="{HEIGHT}" fill="{PAGE}"/>',
     ]
     for variant in ('dark', 'light'):

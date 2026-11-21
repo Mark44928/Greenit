@@ -40,7 +40,6 @@ def panel(draw, origin_x, variant, data):
     fg = hexrgb(data['terminal']['foreground'])
     sec = data['editor']
     surf = hexrgb(sec['surface'])
-    rows = 0
     x0 = origin_x
     # panel frame
     draw.rounded_rectangle([x0, M, x0 + W, M + 560], radius=16, fill=bg, outline=surf, width=2)
@@ -84,7 +83,8 @@ def panel(draw, origin_x, variant, data):
 
 
 def main():
-    cfg = json.load(open(os.path.join(ROOT, 'palette.json')))
+    with open(os.path.join(ROOT, 'palette.json'), encoding='utf-8') as f:
+        cfg = json.load(f)
     img = Image.new('RGB', (M * 3 + W * 2, M * 2 + 580), (14, 14, 14))
     draw = ImageDraw.Draw(img)
     for i, variant in enumerate(['dark', 'light']):
