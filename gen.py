@@ -254,6 +254,10 @@ BUILDS = [
 def main(argv=None):
     args = list(sys.argv[1:] if argv is None else argv)
 
+    if "--version" in args or "-V" in args:
+        print("gen.py 1.0.0")
+        return 0
+
     if "--list" in args:
         for _, output, _ in BUILDS:
             print(output)
