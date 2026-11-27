@@ -431,4 +431,10 @@ Tiny, dependency-free tools from the same family:
 
 ---
 
+<div align="center">
+<img width="100%" src="https://api.star-history.com/svg?repos=Mark44928/Greenit&amp;type=Date" alt="Star history" />
+</div>
+
+---
+
 **More projects:** [Mark44928's hub](https://mark44928.github.io/Mark44928/) — a family of dependency-free tools for Termux, Linux, and the terminal.
